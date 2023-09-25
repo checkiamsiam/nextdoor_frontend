@@ -1,5 +1,3 @@
-import { Poppins } from "next/font/google";
-
 export function remToPx(value: string) {
   return Math.round(parseFloat(value) * 16);
 }
@@ -30,15 +28,8 @@ export function responsiveFontSizes({
   };
 }
 
-export const primaryFont = Poppins({
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  subsets: ["latin"],
-  display: "swap",
-  fallback: ["Helvetica", "Arial", "sans-serif"],
-});
-
 const typography = {
-  fontFamily: primaryFont.style.fontFamily,
+  fontFamily: "'Roboto', 'sans-serif'",
   fontWeightRegular: 400,
   fontWeightMedium: 600,
   fontWeightBold: 700,

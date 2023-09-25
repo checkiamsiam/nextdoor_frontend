@@ -54,13 +54,23 @@ const PRIMARY = {
 };
 
 const SECONDARY = {
-  lighter: "#c5cae9", // indigo[100]
-  light: "#7986cb", // indigo[300]
-  main: "#3f51b5", // indigo[500]
-  dark: "#283593", // indigo[800]
-  darker: "#1a237e", // indigo[900]
+  lighter: "#ffebcc",
+  light: "#ffc266",
+  main: "#FFA500", // This is a standard orange color
+  dark: "#e69500",
+  dark_hover: "#cc8400",
+  darker: "#996300",
   contrastText: "#fff",
 };
+
+// const SECONDARY = {
+//   lighter: "#c5cae9", // indigo[100]
+//   light: "#7986cb", // indigo[300]
+//   main: "#3f51b5", // indigo[500]
+//   dark: "#283593", // indigo[800]
+//   darker: "#1a237e", // indigo[900]
+//   contrastText: "#fff",
+// };
 
 const INFO = {
   lighter: "#CAFDF5",
@@ -127,8 +137,8 @@ const palette = {
     disabled: GREY[500],
   },
   background: {
-    paper: "#fff",
-    primary: "#fff",
+    paper: "#F2F4F8",
+    primary: "#F2F4F8",
     secondary: "#002359",
     neutral: GREY[200],
   },
