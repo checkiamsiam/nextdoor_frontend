@@ -10,8 +10,14 @@ body {
   overflow-x: hidden;
 }
 
-body {
+*{
+  margin: 0px;
+  padding: 0px;
   font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
   background-color: #F2F4F8;
 }
 
