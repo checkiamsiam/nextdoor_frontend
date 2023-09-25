@@ -8,6 +8,7 @@ import Head from "next/head";
 // Slick Carousel CSS
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import MainLayout from "@/layout/MainLayout";
 
 // App Props Type with Layout
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
@@ -21,7 +22,7 @@ type AppPropsWithLayout = AppProps & {
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout =
-    Component.getLayout || ((page) => <SimpleLayout>{page}</SimpleLayout>);
+    Component.getLayout || ((page) => <MainLayout>{page}</MainLayout>);
   return (
     <>
       <Head>

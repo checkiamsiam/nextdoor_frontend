@@ -1,14 +1,21 @@
-import { Box, Container, Grid, Stack } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 import Image from "next/image";
-import Slider from "react-slick";
+import Slider, { Settings } from "react-slick";
+import {
+  CustomNextArrow,
+  CustomPrevArrow,
+} from "../common/Button/SliderButtons";
 
 const Banner = () => {
-  const settings = {
-    dots: true,
+  const settings: Settings = {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    prevArrow: <CustomPrevArrow />,
+    nextArrow: <CustomNextArrow />,
+    // dots: true,
+    // customPaging: (i) => <CustomDot key={i} />,
   };
 
   return (
@@ -16,7 +23,7 @@ const Banner = () => {
       <Container maxWidth="xl" sx={{ py: 4 }}>
         <Grid container spacing={3}>
           <Grid item xs={12} lg={9}>
-            <Box>
+            <Box sx={{ position: "relative" }}>
               <Slider {...settings}>
                 <Box sx={{ aspectRatio: "965/500", position: "relative" }}>
                   <Image
