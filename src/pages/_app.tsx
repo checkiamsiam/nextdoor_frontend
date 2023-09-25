@@ -5,6 +5,10 @@ import { NextPage } from "next";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 
+// Slick Carousel CSS
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 // App Props Type with Layout
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: React.ReactElement) => React.ReactNode;
