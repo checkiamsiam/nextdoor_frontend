@@ -29,7 +29,7 @@ export function responsiveFontSizes({
 }
 
 const typography = {
-  fontFamily: "'Roboto', 'sans-serif'",
+  fontFamily: "'Roboto', sans-serif",
   fontWeightRegular: 400,
   fontWeightMedium: 600,
   fontWeightBold: 700,
