@@ -1,4 +1,5 @@
 import Banner from "@/components/Home/Banner";
+import LatestProducts from "@/components/Home/LatestProducts";
 import SEO from "@/components/common/SEO";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <>
       <SEO title="NextDoor - Your Destination for Electronic Innovations" />
       <Banner />
+      <LatestProducts />
     </>
   );
 }

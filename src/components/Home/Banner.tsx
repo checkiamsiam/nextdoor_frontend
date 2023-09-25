@@ -12,6 +12,8 @@ const Banner = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
     prevArrow: <CustomPrevArrow />,
     nextArrow: <CustomNextArrow />,
     // dots: true,
@@ -20,7 +22,7 @@ const Banner = () => {
 
   return (
     <>
-      <Container maxWidth="xl" sx={{ py: 4 }}>
+      <Container fixed sx={{ py: 4 }}>
         <Grid container spacing={3}>
           <Grid item xs={12} lg={9}>
             <Box sx={{ position: "relative" }}>
