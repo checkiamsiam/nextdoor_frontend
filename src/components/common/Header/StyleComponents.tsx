@@ -1,7 +1,10 @@
-import { InputBase, alpha, styled } from "@mui/material";
+import { InputBase, Slide, alpha, styled } from "@mui/material";
+import { TransitionProps } from "@mui/material/transitions";
+import React from "react";
 
-export const Search = styled("div")(({ theme }) => ({
+export const Search = styled("div")(({ theme } , ) => ({
   position: "relative",
+  zIndex: 1,
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
   "&:hover": {
@@ -18,6 +21,7 @@ export const Search = styled("div")(({ theme }) => ({
 
 export const SearchIconWrapper = styled("div")(({ theme }) => ({
   padding: theme.spacing(0, 2),
+  zIndex: 1,
   height: "100%",
   position: "absolute",
   pointerEvents: "none",
@@ -28,6 +32,7 @@ export const SearchIconWrapper = styled("div")(({ theme }) => ({
 
 export const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
+  // backgroundColor: "white",
   width: "100%",
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
@@ -40,3 +45,13 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
+
+
+export const Transition = React.forwardRef(function Transition(
+  props: TransitionProps & {
+    children: React.ReactElement<any, any>;
+  },
+  ref: React.Ref<unknown>,
+) {
+  return <Slide direction="down" ref={ref} {...props} />;
+});
