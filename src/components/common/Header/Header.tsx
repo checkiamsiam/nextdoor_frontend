@@ -157,7 +157,7 @@ const Header = () => {
               {categories.map((category, i) => {
                 return (
                   <Typography sx={{ cursor: "pointer" }} key={i}>
-                    {category}
+                    {category.name}
                   </Typography>
                 );
               })}

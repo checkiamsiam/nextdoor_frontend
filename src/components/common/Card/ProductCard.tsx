@@ -64,22 +64,18 @@ const ProductCard = ({ product }: IProps) => {
             overflow: "hidden",
             objectFit: "cover",
             cursor: "pointer",
-
+            "& img": {
+              transition: "all 0.2s linear",
+            },
             "&:hover": {
               "& img": {
-                transition: "all 0.2s linear",
                 transform: "scale(1.1)",
               },
             },
           }}
           onClick={() => router.push(`/product/${id}`)}
         >
-          <Image
-            className="card_image"
-            src={images[0]}
-            alt={title}
-            layout="fill"
-          />
+          <Image src={images[0]} alt={title} layout="fill" />
         </Box>
       </Box>
 

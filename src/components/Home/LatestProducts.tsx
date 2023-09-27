@@ -5,7 +5,7 @@ import ProductCard from "../common/Card/ProductCard";
 
 const LatestProducts = () => {
   return (
-    <Container fixed sx={{ py: 4 }}>
+    <Container fixed sx={{ py: 6 }}>
       {/* <SectionHeading
         title="Latest Products"
         subtitle="Latest Trending Product on Market"
@@ -18,14 +18,14 @@ const LatestProducts = () => {
       <Typography
         variant="body1"
         sx={{
-          mb: 4,
+          mb: 3,
           fontWeight: 400,
           fontSize: 14,
           letterSpacing: 1,
           textAlign: "center",
         }}
       >
-        Latest Trending Product on Market
+        Hottest items flying off the shelves
       </Typography>
 
       <Grid container spacing={1.25} sx={{ mt: 0 }}>
