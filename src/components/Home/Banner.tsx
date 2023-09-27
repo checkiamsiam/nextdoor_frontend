@@ -22,7 +22,7 @@ const Banner = () => {
 
   return (
     <>
-      <Container fixed sx={{ py: 4, mt: { xs: 8, md: 0 } }}>
+      <Container fixed sx={{ py: 4 , pt: {xs: "90px" , md: "20px"}}}>
         <Grid container spacing={3}>
           <Grid item xs={12} lg={9}>
             <Box sx={{ position: "relative" }}>
