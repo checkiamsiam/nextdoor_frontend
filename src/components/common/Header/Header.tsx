@@ -1,16 +1,17 @@
 import useClickOutside from "@/hooks/useClickOutside";
-import { theme } from "@/utils/theme";
-import { Backdrop, Box, Container, Grid, Hidden, Link, NoSsr, Stack, Typography } from "@mui/material";
+import { Backdrop, Box, Container, Drawer, Hidden, Stack, Typography } from "@mui/material";
 import { Sling as Hamburger } from "hamburger-react";
-import RouterLink from "next/link";
 import { useRef, useState } from "react";
-import { BiCart, BiGift, BiSearchAlt, BiUser } from "react-icons/bi";
+import { BiSearchAlt } from "react-icons/bi";
 import { categories } from "../../../static/data";
+import HeaderMain from "./HeaderMain";
+import MobileMenuDrawer from "./MobileMenuDrawer";
 import SearchBar from "./SearchBar";
 
 const Header = () => {
   const ref = useRef(null);
   const [open, setOpen] = useState(false);
+  const [openMobileMenu, setOpenMobileMenu] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -34,107 +35,15 @@ const Header = () => {
       >
         <Container fixed>
           <Hidden mdDown>
-            <Grid container sx={{ height: "70px" }} direction="row" justifyContent="space-between" alignItems="center">
-              <Grid item md={1}>
-                <Typography variant="h4">Logo</Typography>
-              </Grid>
-              <Grid item md={5.6}>
-                <SearchBar />
-              </Grid>
-              <Grid item md={1.8}>
-                <RouterLink href="/">
-                  <Stack direction="row" justifyContent="center" alignItems="center" gap="8px">
-                    <BiGift
-                      style={{
-                        color: theme.palette.secondary.main,
-                        fontSize: "30px",
-                      }}
-                    />
-                    <Box>
-                      <Typography variant="subtitle1">Offers</Typography>
-                      <Typography fontSize="12px" color="text.disabled">
-                        Latest Offer
-                      </Typography>
-                    </Box>
-                  </Stack>
-                </RouterLink>
-              </Grid>
-              <Grid item md={1.8}>
-                <RouterLink href="/">
-                  <Stack direction="row" justifyContent="center" alignItems="center" gap="8px">
-                    <BiCart
-                      style={{
-                        color: theme.palette.secondary.main,
-                        fontSize: "30px",
-                      }}
-                    />
-                    <Box>
-                      <Typography variant="subtitle1">Cart</Typography>
-                      <Typography fontSize="12px" color="text.disabled">
-                        Add To Cart
-                      </Typography>
-                    </Box>
-                  </Stack>
-                </RouterLink>
-              </Grid>
-              <Grid item md={1.8}>
-                <RouterLink href="/">
-                  <Stack direction="row" justifyContent="center" alignItems="center" gap="5px">
-                    <BiUser
-                      style={{
-                        color: theme.palette.secondary.main,
-                        fontSize: "30px",
-                      }}
-                    />
-                    <Box>
-                      <Typography variant="subtitle1">Account</Typography>
-                      <Typography fontSize="12px" color="text.disabled">
-                        <NoSsr>
-                          <Link
-                            component={RouterLink}
-                            href="/public"
-                            underline="none"
-                            color="text.disabled"
-                            sx={{
-                              transition: "all 0.3s ease-in-out",
-                              ":hover": {
-                                color: "white",
-                              },
-                            }}
-                          >
-                            Login
-                          </Link>{" "}
-                          {" or "}
-                          <Link
-                            component={RouterLink}
-                            href="/public"
-                            underline="none"
-                            color="text.disabled"
-                            sx={{
-                              transition: "all 0.3s ease-in-out",
-                              ":hover": {
-                                color: "white",
-                              },
-                            }}
-                          >
-                            Register
-                          </Link>
-                        </NoSsr>
-                      </Typography>
-                    </Box>
-                  </Stack>
-                </RouterLink>
-              </Grid>
-            </Grid>
+            <HeaderMain />
           </Hidden>
           <Hidden mdUp>
             <Stack sx={{ height: "70px" }} direction="row" justifyContent="space-between" alignItems="center">
-              <Hamburger size={25} />
+              <Hamburger size={25} toggled={openMobileMenu} onToggle={() => setOpenMobileMenu(!openMobileMenu)} />
               <Typography variant="h4">Logo</Typography>
               <BiSearchAlt
                 onClick={handleClickOpen}
                 style={{
-                  // color: theme.palette.secondary.main,
                   fontSize: "30px",
                 }}
               />
@@ -175,6 +84,32 @@ const Header = () => {
           </span>
         </Box>
       </Backdrop>
+      <Drawer
+        anchor="left"
+        open={openMobileMenu}
+        sx={{
+          zIndex: 98,
+        }}
+        onClose={() => setOpenMobileMenu(false)}
+      >
+        <MobileMenuDrawer />
+      </Drawer>
+      <Hidden mdUp>
+        <Box
+          sx={{
+            bgcolor: "background.secondary",
+            color: "white",
+            position: "fixed",
+            bottom: 0,
+            width: "100%",
+            zIndex: 97,
+          }}
+        >
+          <Container fixed>
+            <Stack sx={{ height: "70px" }} direction="row" justifyContent="space-between" alignItems="center"></Stack>
+          </Container>
+        </Box>
+      </Hidden>
     </header>
   );
 };
