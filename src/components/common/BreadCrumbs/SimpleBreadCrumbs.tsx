@@ -19,7 +19,7 @@ type IProps = {
 
 const SimpleBreadCrumbs = ({ links }: IProps) => {
   return (
-    <Box sx={{ width: "100%", bgcolor: "white", boxShadow: 1 }}>
+    <Box sx={{ width: "100%", bgcolor: "white", boxShadow: 1, py: 2 }}>
       <Container fixed>
         <Breadcrumbs sx={{ py: 0.5 }}>
           <Box
