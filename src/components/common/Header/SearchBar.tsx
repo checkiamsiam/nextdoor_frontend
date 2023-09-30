@@ -1,9 +1,10 @@
 import { Box, Card, ClickAwayListener } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BiSearchAlt } from "react-icons/bi";
 import { Search, SearchIconWrapper, StyledInputBase } from "./StyleComponents";
 
 const SearchBar = () => {
+  const [search, setSearch] = useState("");
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true);
@@ -11,13 +12,18 @@ const SearchBar = () => {
   const handleClickAway = () => {
     setOpen(false);
   };
+  useEffect(() => {
+    if (search !== "") {
+      handleOpen();
+    }
+  }, [search]);
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
       <Search>
         <SearchIconWrapper>
           <BiSearchAlt style={{ fontSize: "20px" }} />
         </SearchIconWrapper>
-        <StyledInputBase onFocus={handleOpen} placeholder="Search…" inputProps={{ "aria-label": "search" }} />
+        <StyledInputBase onChange={(e) => setSearch(e.target.value)} placeholder="Search…" inputProps={{ "aria-label": "search" }} />
         {open && (
           <Card
             sx={{
