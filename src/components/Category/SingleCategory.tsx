@@ -1,33 +1,35 @@
 import PriceRange from "@/components/Filters/PriceRange";
-import { theme } from "@/utils/theme";
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Container,
-  Grid,
-  Stack,
-  Typography,
-} from "@mui/material";
-import { useState } from "react";
-import { FiPlus, FiMinus } from "react-icons/fi";
+import { IProduct } from "@/interface/product.interface";
+import latestProducts from "@/static/latestProducts";
+import { Container, Grid, Stack } from "@mui/material";
 import AvailabilityFilter from "../Filters/AvailabilityFilter";
 import BrandFilter from "../Filters/BrandFilter";
+import TopFilter from "../Filters/TopFilter";
+import ProductCard from "../common/Card/ProductCard";
 
-const SingleCategory = () => {
-  const [expanded, setExpanded] = useState<string | false>("price_range");
+type IProps = {
+  category:
+    | {
+        id: number;
+        name: string;
+        slug: string;
+        icon: string;
+      }
+    | undefined;
+};
 
-  const handleAccordionChange =
-    (panel: string) => (e: React.SyntheticEvent, isExpanded: boolean) => {
-      setExpanded(isExpanded ? panel : false);
-    };
+const SingleCategory = ({ category }: IProps) => {
   return (
     <>
       <Container fixed sx={{ py: { xs: 8, md: 4 } }}>
-        <Grid container>
+        <Grid container spacing={2}>
           {/* Left Side Filters */}
-          <Grid item xs={0} md={3} sx={{ display: { xs: "none", md: "grid" } }}>
-            <Stack spacing={1} direction="column">
+          <Grid item xs={0} md={3}>
+            <Stack
+              spacing={1}
+              direction="column"
+              sx={{ display: { xs: "none", md: "flex" } }}
+            >
               <PriceRange id="price_range" />
 
               <AvailabilityFilter id="availability" />
@@ -37,7 +39,17 @@ const SingleCategory = () => {
           </Grid>
 
           {/* Right Side */}
-          <Grid item xs={12} md={9}></Grid>
+          <Grid item xs={12} md={9}>
+            <TopFilter title={category?.name || ""} />
+
+            <Grid container spacing={1.25} sx={{ mt: 1 }}>
+              {latestProducts.map((product: IProduct) => (
+                <Grid item xs={6} sm={4} lg={3} key={product.id}>
+                  <ProductCard product={product} />
+                </Grid>
+              ))}
+            </Grid>
+          </Grid>
         </Grid>
       </Container>
     </>
