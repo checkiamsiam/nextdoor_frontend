@@ -27,7 +27,7 @@ const FeaturedCategory = () => {
 
       <Grid container spacing={1.25} sx={{ mt: 0 }}>
         {categories?.slice(0, 15)?.map((category, i) => (
-          <Grid item xs={3} sm={3} lg={1.5} key={category.id}>
+          <Grid item xs={3} md={1.5} key={category.id}>
             <Link href={`/category/${category.slug}`}>
               <Box
                 sx={{
@@ -77,7 +77,7 @@ const FeaturedCategory = () => {
             </Link>
           </Grid>
         ))}
-        <Grid item xs={3} sm={3} lg={1.5}>
+        <Grid item xs={3} md={1.5}>
           <Link href="/category">
             <Box
               sx={{
