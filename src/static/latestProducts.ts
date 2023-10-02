@@ -3,7 +3,7 @@ import { IProduct } from "@/interface/product.interface";
 const latestProducts: IProduct[] = [
   {
     id: 1,
-    title: "Smartphone X1 sdfasd fasdf asdfas dfasdf sad fdsfasdf asdf sdf",
+    title: "Smartphone X1",
     images: ["https://picsum.photos/200?random=2", "https://picsum.photos/200?random=2"],
     regularPrice: 699.99,
     salePrice: 649.99,
