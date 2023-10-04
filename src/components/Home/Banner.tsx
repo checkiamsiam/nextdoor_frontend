@@ -1,21 +1,21 @@
 import { Box, Container, Grid } from "@mui/material";
 import Image from "next/image";
-import Slider from "react-slick";
+import Slider, { Settings } from "react-slick";
 import {
   CustomNextArrow,
   CustomPrevArrow,
 } from "../common/Button/SliderButtons";
 
 const Banner = () => {
-  const settings = {
+  const settings: Settings = {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
-    prevArrow: <CustomPrevArrow />,
-    nextArrow: <CustomNextArrow />,
+    prevArrow: (<CustomPrevArrow />) as any,
+    nextArrow: (<CustomNextArrow />) as any,
     // dots: true,
     // customPaging: (i) => <CustomDot key={i} />,
   };
