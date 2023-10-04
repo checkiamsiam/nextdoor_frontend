@@ -3,11 +3,11 @@ import { Backdrop, Box, Container, Drawer, Hidden, Stack, Typography } from "@mu
 import { Sling as Hamburger } from "hamburger-react";
 import { useRef, useState } from "react";
 import { BiSearchAlt } from "react-icons/bi";
-import { categories } from "../../../static/data";
 import HeaderMain from "./HeaderMain";
 import MobileBottomMenu from "./MobileBottomMenu";
 import MobileMenuDrawer from "./MobileMenuDrawer";
 import SearchBar from "./SearchBar";
+import SubCatBottomHeader from "./SubCatBottomHeader";
 
 const Header = () => {
   const ref = useRef(null);
@@ -53,19 +53,7 @@ const Header = () => {
         </Container>
       </Box>
       <Hidden mdDown>
-        <Box bgcolor="white">
-          <Container fixed sx={{ paddingTop: "70px" }}>
-            <Stack direction="row" gap="5px" justifyContent="space-between" alignItems="center" sx={{ paddingY: "5px" }}>
-              {categories.map((category, i) => {
-                return (
-                  <Typography variant="body1" color="text.secondary" sx={{ cursor: "pointer", fontSize: 14 }} key={i}>
-                    {category.name}
-                  </Typography>
-                );
-              })}
-            </Stack>
-          </Container>
-        </Box>
+        <SubCatBottomHeader />
       </Hidden>
       <Backdrop
         sx={{
@@ -89,7 +77,7 @@ const Header = () => {
         anchor="left"
         open={openMobileMenu}
         sx={{
-          zIndex: 98
+          zIndex: 98,
         }}
         onClose={() => setOpenMobileMenu(false)}
       >
