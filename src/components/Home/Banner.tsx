@@ -5,6 +5,7 @@ import {
   CustomNextArrow,
   CustomPrevArrow,
 } from "../common/Button/SliderButtons";
+import { ReactElement } from "react";
 
 const Banner = () => {
   const settings: Settings = {
@@ -14,15 +15,15 @@ const Banner = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
-    prevArrow: <CustomPrevArrow />,
-    nextArrow: <CustomNextArrow />,
+    prevArrow: (<CustomPrevArrow />) as ReactElement,
+    nextArrow: (<CustomNextArrow />) as ReactElement,
     // dots: true,
     // customPaging: (i) => <CustomDot key={i} />,
   };
 
   return (
     <>
-      <Container fixed sx={{ py: 4 , pt: {xs: "90px" , md: "20px"}}}>
+      <Container fixed sx={{ py: 4, pt: { xs: "90px", md: "20px" } }}>
         <Grid container spacing={3}>
           <Grid item xs={12} lg={9}>
             <Box sx={{ position: "relative" }}>
