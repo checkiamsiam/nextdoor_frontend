@@ -1,13 +1,12 @@
-import { SxProps, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import CustomLink from "../Button/CustomLink";
 
 type IProps = {
   children: React.ReactNode | string;
-  sx?: SxProps;
   href: string;
 };
 
-const FooterLink = ({ children }: IProps) => {
+const FooterLink = ({ children, href }: IProps) => {
   return (
     <Typography>
       <CustomLink
@@ -19,7 +18,7 @@ const FooterLink = ({ children }: IProps) => {
             textDecoration: "underline",
           },
         }}
-        href="/"
+        href={href}
       >
         {children}
       </CustomLink>
