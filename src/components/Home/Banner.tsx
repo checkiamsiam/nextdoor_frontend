@@ -1,13 +1,13 @@
 import { Box, Container, Grid } from "@mui/material";
 import Image from "next/image";
-import Slider, { Settings } from "react-slick";
+import Slider from "react-slick";
 import {
   CustomNextArrow,
   CustomPrevArrow,
 } from "../common/Button/SliderButtons";
 
 const Banner = () => {
-  const settings: Settings = {
+  const settings: any = {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
