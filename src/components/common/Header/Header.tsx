@@ -89,7 +89,7 @@ const Header = () => {
         anchor="left"
         open={openMobileMenu}
         sx={{
-          zIndex: 98
+          zIndex: 98,
         }}
         onClose={() => setOpenMobileMenu(false)}
       >
