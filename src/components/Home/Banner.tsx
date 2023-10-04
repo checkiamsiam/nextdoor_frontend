@@ -1,28 +1,28 @@
 import { Box, Container, Grid } from "@mui/material";
 import Image from "next/image";
-import Slider, { Settings } from "react-slick";
+import Slider from "react-slick";
 import {
   CustomNextArrow,
   CustomPrevArrow,
 } from "../common/Button/SliderButtons";
 
 const Banner = () => {
-  const settings: Settings = {
+  const settings: any = {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
-    prevArrow: <CustomPrevArrow />,
-    nextArrow: <CustomNextArrow />,
+    prevArrow: (<CustomPrevArrow />) as any,
+    nextArrow: (<CustomNextArrow />) as any,
     // dots: true,
     // customPaging: (i) => <CustomDot key={i} />,
   };
 
   return (
     <>
-      <Container fixed sx={{ py: 4 , pt: {xs: "90px" , md: "20px"}}}>
+      <Container fixed sx={{ py: 4, pt: { xs: "90px", md: "20px" } }}>
         <Grid container spacing={3}>
           <Grid item xs={12} lg={9}>
             <Box sx={{ position: "relative" }}>
