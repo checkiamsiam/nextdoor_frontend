@@ -1,6 +1,6 @@
 import SEO from "@/components/common/SEO";
 import latestProducts from "@/static/latestProducts";
-import { Box, Card, Checkbox, Container, FormControlLabel, Grid, Input, Stack, Typography } from "@mui/material";
+import { Box, Card, Checkbox, Container, FormControlLabel, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import { AiOutlinePlus, AiTwotoneDelete } from "react-icons/ai";
 import { RiSubtractFill } from "react-icons/ri";
@@ -83,7 +83,7 @@ const CartPage = () => {
                       >
                         <RiSubtractFill />
                       </Box>
-                      <Input  sx={{width: "30px" , textAlign: "center" , outline: "none"}}/>
+                      <Typography sx={{ px: "10px", display: "flex", alignItems: "center" }}>5</Typography>
                       <Box
                         sx={{
                           padding: "5px",
