@@ -16,7 +16,7 @@ type IProps = {
 
 const ProductCard = ({ product }: IProps) => {
   const router = useRouter();
-  const { title, regularPrice, id, images, salePrice, category, rating } =
+  const { title, regularPrice, id, images, salePrice, slug, category, rating } =
     product;
   return (
     <Box
@@ -73,7 +73,7 @@ const ProductCard = ({ product }: IProps) => {
               },
             },
           }}
-          onClick={() => router.push(`/product/${id}`)}
+          onClick={() => router.push(`/product/${slug}`)}
         >
           <Image src={images[0]} alt={title} layout="fill" />
         </Box>
@@ -100,7 +100,7 @@ const ProductCard = ({ product }: IProps) => {
       >
         <MuiLink
           component={Link}
-          href={`/product/${id}`}
+          href={`/product/${slug}`}
           underline="none"
           sx={{
             color: "text.primary",
@@ -125,7 +125,7 @@ const ProductCard = ({ product }: IProps) => {
             variant="h6"
             sx={{ fontWeight: 600, fontSize: 16, color: "primary.dark" }}
           >
-            ${salePrice}
+            ৳{salePrice}
           </Typography>
 
           <Typography
@@ -136,7 +136,7 @@ const ProductCard = ({ product }: IProps) => {
               fontSize: 12,
             }}
           >
-            ${regularPrice}
+            ৳{regularPrice}
           </Typography>
         </Stack>
       </Box>

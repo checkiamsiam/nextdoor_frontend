@@ -8,4 +8,5 @@ export interface IProduct {
   category: string;
   rating: number;
   slug: string;
+  status?: "In Stock" | "Out of Stock";
 }

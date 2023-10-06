@@ -5,6 +5,7 @@ import {
 } from "@mui/material/styles";
 import palette from "./palette";
 import typography from "./typography";
+import { shadows } from "./themeOptions";
 
 type Props = {
   children: React.ReactNode;
@@ -13,6 +14,8 @@ type Props = {
 const themeOptions: ThemeOptions = {
   palette: palette,
   typography,
+  // overrides default theme options
+  shadows,
 };
 
 export const theme = createTheme(themeOptions);

@@ -4,7 +4,10 @@ const latestProducts: IProduct[] = [
   {
     id: 1,
     title: "Smartphone X1",
-    images: ["https://picsum.photos/200?random=2", "https://picsum.photos/200?random=2"],
+    images: [
+      "https://picsum.photos/200?random=2",
+      "https://picsum.photos/200?random=1",
+    ],
     regularPrice: 699.99,
     salePrice: 649.99,
     description:
@@ -16,7 +19,10 @@ const latestProducts: IProduct[] = [
   {
     id: 2,
     title: "Laptop Pro 2023",
-    images: ["https://picsum.photos/200?random=2", "https://picsum.photos/200?random=2"],
+    images: [
+      "https://picsum.photos/200?random=2",
+      "https://picsum.photos/200?random=2",
+    ],
     regularPrice: 1499.99,
     salePrice: 1399.99,
     description:
@@ -28,7 +34,10 @@ const latestProducts: IProduct[] = [
   {
     id: 3,
     title: "Tablet TabTech 10",
-    images: ["https://picsum.photos/200?random=2", "https://picsum.photos/200?random=2"],
+    images: [
+      "https://picsum.photos/200?random=2",
+      "https://picsum.photos/200?random=2",
+    ],
     regularPrice: 349.99,
     salePrice: 299.99,
     description:
@@ -40,7 +49,10 @@ const latestProducts: IProduct[] = [
   {
     id: 4,
     title: "Smart Speaker Echo Plus",
-    images: ["https://picsum.photos/200?random=2", "https://picsum.photos/200?random=2"],
+    images: [
+      "https://picsum.photos/200?random=2",
+      "https://picsum.photos/200?random=2",
+    ],
     regularPrice: 99.99,
     salePrice: 79.99,
     description:
@@ -52,7 +64,10 @@ const latestProducts: IProduct[] = [
   {
     id: 5,
     title: "4K Ultra HD TV 55'",
-    images: ["https://picsum.photos/200?random=2", "https://picsum.photos/200?random=2"],
+    images: [
+      "https://picsum.photos/200?random=2",
+      "https://picsum.photos/200?random=2",
+    ],
     regularPrice: 899.99,
     salePrice: 799.99,
     description: "Experience stunning visuals with the 4K Ultra HD TV 55'.",
@@ -63,7 +78,10 @@ const latestProducts: IProduct[] = [
   {
     id: 6,
     title: "Gaming Console XGamer",
-    images: ["https://picsum.photos/200?random=2", "https://picsum.photos/200?random=2"],
+    images: [
+      "https://picsum.photos/200?random=2",
+      "https://picsum.photos/200?random=2",
+    ],
     regularPrice: 449.99,
     salePrice: 399.99,
     description:
@@ -75,7 +93,10 @@ const latestProducts: IProduct[] = [
   {
     id: 7,
     title: "Wireless Earbuds Breeze",
-    images: ["https://picsum.photos/200?random=2", "https://picsum.photos/200?random=2"],
+    images: [
+      "https://picsum.photos/200?random=2",
+      "https://picsum.photos/200?random=2",
+    ],
     regularPrice: 79.99,
     salePrice: 69.99,
     description:
@@ -87,7 +108,10 @@ const latestProducts: IProduct[] = [
   {
     id: 8,
     title: "Digital Camera SnapShot Pro",
-    images: ["https://picsum.photos/200?random=2", "https://picsum.photos/200?random=2"],
+    images: [
+      "https://picsum.photos/200?random=2",
+      "https://picsum.photos/200?random=2",
+    ],
     regularPrice: 349.99,
     salePrice: 299.99,
     description:
@@ -99,7 +123,10 @@ const latestProducts: IProduct[] = [
   {
     id: 9,
     title: "Smartwatch ConnectX",
-    images: ["https://picsum.photos/200?random=2", "https://picsum.photos/200?random=2"],
+    images: [
+      "https://picsum.photos/200?random=2",
+      "https://picsum.photos/200?random=2",
+    ],
     regularPrice: 199.99,
     salePrice: 179.99,
     description:
@@ -111,7 +138,10 @@ const latestProducts: IProduct[] = [
   {
     id: 10,
     title: "Bluetooth Speaker SoundWave",
-    images: ["https://picsum.photos/200?random=2", "https://picsum.photos/200?random=2"],
+    images: [
+      "https://picsum.photos/200?random=2",
+      "https://picsum.photos/200?random=2",
+    ],
     regularPrice: 59.99,
     salePrice: 49.99,
     description:
@@ -123,7 +153,10 @@ const latestProducts: IProduct[] = [
   {
     id: 11,
     title: "External Hard Drive MegaStorage",
-    images: ["https://picsum.photos/200?random=2", "https://picsum.photos/200?random=2"],
+    images: [
+      "https://picsum.photos/200?random=2",
+      "https://picsum.photos/200?random=2",
+    ],
     regularPrice: 119.99,
     salePrice: 109.99,
     description:
@@ -135,7 +168,10 @@ const latestProducts: IProduct[] = [
   {
     id: 12,
     title: "Wireless Router TurboNet",
-    images: ["https://picsum.photos/200?random=2", "https://picsum.photos/200?random=2"],
+    images: [
+      "https://picsum.photos/200?random=2",
+      "https://picsum.photos/200?random=2",
+    ],
     regularPrice: 79.99,
     salePrice: 69.99,
     description:
