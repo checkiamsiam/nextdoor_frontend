@@ -38,7 +38,7 @@ const SubCatBottomHeader = () => {
                     borderTop: "2px solid",
                     borderColor: "secondary.main",
                     boxShadow: 5,
-                    transition: "all 0.5s linear",
+                    transition: "all 0.3s linear",
                     borderRadius: "5px",
                     padding: "5px",
                   }}
