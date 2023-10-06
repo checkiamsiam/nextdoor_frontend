@@ -3,7 +3,7 @@ import { TextField, TextFieldProps } from "@mui/material";
 
 type IProps = {
   name: string;
-  helperText: string;
+  helperText: string | undefined;
 };
 
 export default function RHFTextField({
