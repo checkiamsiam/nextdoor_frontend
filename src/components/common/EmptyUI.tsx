@@ -28,9 +28,9 @@ const EmptyUI = ({ title, sx }: IProps) => {
         height={150}
       />
       <Typography
-        variant="h6"
+        variant="subtitle1"
         sx={{
-          fontWeight: "600",
+          fontWeight: "500",
         }}
       >
         {title || "No data found"}

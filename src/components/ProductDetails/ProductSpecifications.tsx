@@ -83,7 +83,7 @@ const ProductSpecifications = () => {
   return (
     <>
       <Card sx={{ bgcolor: "white", p: 2 }} id="specification">
-        <Typography variant="h5" gutterBottom sx={{ mb: 3 }}>
+        <Typography variant="h6" sx={{ mb: 3 }}>
           Specifications
         </Typography>
 

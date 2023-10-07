@@ -98,7 +98,7 @@ const ProductTopInfo = ({ product }: IProps) => {
           <Box>
             <Typography
               variant="h1"
-              sx={{ fontSize: 24, fontWeight: 600, color: "primary.dark" }}
+              sx={{ fontSize: 28, fontWeight: 600, color: "primary.dark" }}
             >
               {title}
             </Typography>
@@ -114,13 +114,11 @@ const ProductTopInfo = ({ product }: IProps) => {
                 sx={{
                   fontSize: 25,
                   fontWeight: 800,
-                  // bgcolor: "primary.lighter",
-                  px: 1.5,
                   borderRadius: 10,
                   color: "secondary.main",
                 }}
               >
-                {/* Price: <strong>৳{salePrice}</strong> */}৳{salePrice}
+                ৳{salePrice}
               </Typography>
               <Box>
                 <Typography

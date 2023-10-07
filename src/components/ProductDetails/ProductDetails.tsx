@@ -32,14 +32,14 @@ const navigations = [
 ];
 
 const ProductDetails = ({ product }: IProps) => {
-  const [activeTab, setActiveTab] = useState(1);
+  const [activeTab, setActiveTab] = useState(0);
   return (
     <>
-      <Container fixed sx={{ py: 10 }}>
+      <Container fixed sx={{ py: { xs: 10, md: 5 } }}>
         <ProductTopInfo product={product} />
         <Box sx={{ my: 3 }}>
-          <Grid container spacing={3}>
-            <Grid item xs={12} md={9}>
+          <Grid container spacing={2.5}>
+            <Grid item xs={12} md={8.5}>
               <Box>
                 <Stack direction="row" spacing={2} sx={{ mb: 3 }}>
                   {navigations?.map((nav, i) => (
@@ -57,13 +57,13 @@ const ProductDetails = ({ product }: IProps) => {
                 </Stack>
                 <Stack direction="column" spacing={2}>
                   <ProductSpecifications />
-                  <ProductDescription />
+                  <ProductDescription description={product?.description} />
                   <ProductQuestions />
                   <ProductReviews />
                 </Stack>
               </Box>
             </Grid>
-            <Grid item xs={12} md={3}>
+            <Grid item xs={12} md={3.5}>
               <RelatedProducts />
             </Grid>
           </Grid>

@@ -1,15 +1,23 @@
 import { Card, Typography } from "@mui/material";
 import EmptyUI from "../common/EmptyUI";
 
-const ProductDescription = () => {
+type IProps = {
+  description: string;
+};
+
+const ProductDescription = ({ description }: IProps) => {
   return (
     <>
       <Card sx={{ bgcolor: "white", p: 2 }} id="description">
-        <Typography variant="h5" gutterBottom>
+        <Typography variant="h6" sx={{ mb: 3 }}>
           Description
         </Typography>
 
-        <EmptyUI title="No description found" />
+        {description ? (
+          <Typography variant="body1">{description}</Typography>
+        ) : (
+          <EmptyUI title="No description found" />
+        )}
       </Card>
     </>
   );
