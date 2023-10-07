@@ -17,9 +17,6 @@ const AuthContainer = ({
   linkPath,
   linkText,
 }: IProps) => {
-  const handleGoogleLogin = () => {
-    // toast.warning("Google login is not available right now");
-  };
   return (
     <>
       <Grid container sx={{ alignItems: "center" }}>
@@ -58,9 +55,10 @@ const AuthContainer = ({
         <Grid item xs={12} md={8} sx={{ mt: { xs: 10, md: 4 } }}>
           <Box
             sx={{
-              width: { xs: "100%", lg: "50%" },
+              width: { xs: "100%", md: "80%", lg: "50%" },
               mx: "auto",
-              p: { xs: 3, sm: 8 },
+              px: { xs: 3, sm: 8 },
+              py: 4,
             }}
           >
             <Box sx={{ mb: 8, textAlign: "center", color: "text.secondary" }}>
@@ -93,45 +91,6 @@ const AuthContainer = ({
               </Stack>
             </Box>
             <Box>{children}</Box>
-
-            {/* Social Login */}
-            <Box
-              sx={{
-                mt: 3,
-                width: "100%",
-                display: "none",
-                // page === "login" || page === "signup" ? "block" : "none",
-              }}
-            >
-              <Divider>Or</Divider>
-              <Button
-                variant="outlined"
-                fullWidth
-                size="large"
-                sx={{
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: 1,
-                  mt: 2,
-                  borderColor: "grey.200",
-                  color: "text.secondary",
-                  "&:hover": {
-                    borderColor: "grey.200",
-                    bgcolor: "grey.100",
-                  },
-                }}
-                onClick={handleGoogleLogin}
-              >
-                <Box
-                  component="img"
-                  src="/icons/google.png"
-                  alt="google"
-                  width={35}
-                  height={35}
-                />
-                <Typography fontWeight={600}>Sign In with Google</Typography>
-              </Button>
-            </Box>
           </Box>
         </Grid>
       </Grid>
