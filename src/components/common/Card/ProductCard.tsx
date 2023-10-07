@@ -9,6 +9,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import CustomLink from "../Button/CustomLink";
 
 type IProps = {
   product: IProduct;
@@ -98,10 +99,8 @@ const ProductCard = ({ product }: IProps) => {
           gap: 1,
         }}
       >
-        <MuiLink
-          component={Link}
+        <CustomLink
           href={`/product/${slug}`}
-          underline="none"
           sx={{
             color: "text.primary",
             lineHeight: 1.2,
@@ -113,7 +112,7 @@ const ProductCard = ({ product }: IProps) => {
           <Typography variant="h6" sx={{ fontWeight: 500, fontSize: 14 }}>
             {title.length > 70 ? title.slice(0, 70) + "..." : title}
           </Typography>
-        </MuiLink>
+        </CustomLink>
 
         <Stack
           direction="row"

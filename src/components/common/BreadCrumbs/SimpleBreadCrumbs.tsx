@@ -1,6 +1,7 @@
 import { AiOutlineHome } from "react-icons/ai";
 import { Box, Breadcrumbs, Container, Typography } from "@mui/material";
 import Link from "next/link";
+import CustomLink from "../Button/CustomLink";
 
 function handleClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
   event.preventDefault();
@@ -22,8 +23,7 @@ const SimpleBreadCrumbs = ({ links }: IProps) => {
     <Box sx={{ width: "100%", bgcolor: "white", boxShadow: 1, py: 2 }}>
       <Container fixed>
         <Breadcrumbs sx={{ py: 0.5 }}>
-          <Box
-            component={Link}
+          <CustomLink
             href="/"
             sx={{
               display: "flex",
@@ -42,11 +42,10 @@ const SimpleBreadCrumbs = ({ links }: IProps) => {
             <Typography variant="body1" sx={{ fontSize: "inherit" }}>
               Home
             </Typography>
-          </Box>
+          </CustomLink>
           {links?.map((link, i) => (
-            <Box
+            <CustomLink
               key={link?.name}
-              component={Link}
               href={link?.path}
               sx={{
                 display: "flex",
@@ -65,7 +64,7 @@ const SimpleBreadCrumbs = ({ links }: IProps) => {
               <Typography variant="body1" sx={{ fontSize: "inherit" }}>
                 {link?.name}
               </Typography>
-            </Box>
+            </CustomLink>
           ))}
         </Breadcrumbs>
       </Container>
