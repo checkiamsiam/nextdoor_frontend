@@ -2,6 +2,7 @@ import { IProduct } from "@/interface/product.interface";
 import {
   Box,
   Button,
+  Fade,
   Grid,
   Stack,
   Table,
@@ -36,24 +37,26 @@ const ProductTopInfo = ({ product }: IProps) => {
     <Box sx={{ bgcolor: "white", borderRadius: 2, boxShadow: 4, p: 2 }}>
       <Grid container spacing={3}>
         <Grid item xs={12} md={5}>
-          <Box
-            sx={{
-              aspectRatio: "300/300",
-              position: "relative",
-              cursor: "zoom-in",
-              "& img": {
-                borderRadius: 2,
-              },
-            }}
-          >
-            <Image
-              src={images[imgIndex]}
-              alt={title}
-              layout="fill"
-              blurDataURL={images[0]}
-              placeholder="blur"
-            />
-          </Box>
+          <Fade in={imgIndex !== -1} timeout={500}>
+            <Box
+              sx={{
+                aspectRatio: "300/300",
+                position: "relative",
+                cursor: "zoom-in",
+                "& img": {
+                  borderRadius: 2,
+                },
+              }}
+            >
+              <Image
+                src={images[imgIndex]}
+                alt={title}
+                layout="fill"
+                blurDataURL={images[imgIndex]}
+                placeholder="blur"
+              />
+            </Box>
+          </Fade>
 
           <Stack
             direction="row"
@@ -100,46 +103,55 @@ const ProductTopInfo = ({ product }: IProps) => {
               {title}
             </Typography>
 
-            <Stack direction="row" spacing={1.5} sx={{ mt: 2 }}>
+            <Stack
+              direction="row"
+              alignItems="center"
+              flexWrap="wrap"
+              sx={{ mt: 2, gap: 1.5 }}
+            >
               <Typography
-                variant="body1"
+                variant="h2"
                 sx={{
-                  fontSize: 14,
-                  fontWeight: 500,
-                  bgcolor: "primary.lighter",
+                  fontSize: 25,
+                  fontWeight: 800,
+                  // bgcolor: "primary.lighter",
                   px: 1.5,
-                  py: 0.75,
                   borderRadius: 10,
+                  color: "secondary.main",
                 }}
               >
-                Price: <strong>৳{salePrice}</strong>
+                {/* Price: <strong>৳{salePrice}</strong> */}৳{salePrice}
               </Typography>
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: 14,
-                  fontWeight: 500,
-                  bgcolor: "primary.lighter",
-                  px: 1.5,
-                  py: 0.75,
-                  borderRadius: 10,
-                }}
-              >
-                Regular Price: <strong>৳{regularPrice}</strong>
-              </Typography>
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: 14,
-                  fontWeight: 500,
-                  bgcolor: "primary.lighter",
-                  px: 1.5,
-                  py: 0.75,
-                  borderRadius: 10,
-                }}
-              >
-                Status: <strong>In Stock</strong>
-              </Typography>
+              <Box>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: 14,
+                    fontWeight: 500,
+                    bgcolor: "primary.lighter",
+                    px: 1.5,
+                    py: 0.75,
+                    borderRadius: 10,
+                  }}
+                >
+                  Regular Price: <strong>৳{regularPrice}</strong>
+                </Typography>
+              </Box>
+              <Box>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: 14,
+                    fontWeight: 500,
+                    bgcolor: "primary.lighter",
+                    px: 1.5,
+                    py: 0.75,
+                    borderRadius: 10,
+                  }}
+                >
+                  Status: <strong>In Stock</strong>
+                </Typography>
+              </Box>
             </Stack>
           </Box>
 
