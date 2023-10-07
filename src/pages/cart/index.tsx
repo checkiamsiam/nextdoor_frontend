@@ -1,3 +1,4 @@
+import PrimaryButton from "@/components/common/Button/PrimaryButton";
 import SEO from "@/components/common/SEO";
 import latestProducts from "@/static/latestProducts";
 import { Box, Card, Checkbox, Container, FormControlLabel, Grid, Stack, Typography } from "@mui/material";
@@ -108,7 +109,20 @@ const CartPage = () => {
             </Card>
           </Grid>
           <Grid item xs={12} md={4}>
-            <h1>Cart</h1>
+            <Card sx={{ bgcolor: "white", p: 2, boxShadow: 2 }}>
+              <Typography variant="subtitle1">Order Summary</Typography>
+              <Stack direction="row" justifyContent="space-between">
+                <Typography variant="body2">Subtotal (0 items)</Typography>
+                <Typography fontSize="14px">600 ৳</Typography>
+              </Stack>
+              <Stack direction="row" justifyContent="space-between">
+                <Typography variant="body2">Total</Typography>
+                <Typography color="secondary.dark" fontSize="14px">
+                  600 ৳
+                </Typography>
+              </Stack>
+              <PrimaryButton fullWidth>Proceed to Checkout (0)</PrimaryButton>
+            </Card>
           </Grid>
         </Grid>
       </Container>

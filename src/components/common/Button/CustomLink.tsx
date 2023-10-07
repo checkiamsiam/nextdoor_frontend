@@ -1,4 +1,4 @@
-import { Link, NoSsr, SxProps } from "@mui/material";
+import { Box, Link, NoSsr, SxProps } from "@mui/material";
 import NavLink from "next/link";
 
 type IProps = {
@@ -10,15 +10,18 @@ type IProps = {
 const CustomLink = ({ children, sx, href }: IProps) => {
   return (
     <NoSsr>
-      <Link
+      <Box
         sx={{
+          textDecoration: "none",
           ...sx,
+
         }}
+        
         component={NavLink}
         href={href}
       >
         {children}
-      </Link>
+      </Box>
     </NoSsr>
   );
 };

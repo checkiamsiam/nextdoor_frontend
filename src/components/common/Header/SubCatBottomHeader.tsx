@@ -55,7 +55,7 @@ const SubCatBottomHeader = () => {
                             fontSize: 14,
                             paddingY: "5px",
                             paddingX: "10px",
-                            transition: "all 0.3s ease-in-out",
+                            transition: "all 0.1s ease-in-out",
                             ":hover": {
                               backgroundColor: "secondary.main",
                               borderRadius: "5px",
