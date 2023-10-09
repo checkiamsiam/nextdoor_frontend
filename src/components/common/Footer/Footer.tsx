@@ -6,7 +6,7 @@ import FooterLink from "./FooterLink";
 
 const Footer = () => {
   return (
-    <Box sx={{ bgcolor: "background.secondary", color: "white" , position: "sticky" , bottom: 0 }}>
+    <Box sx={{ bgcolor: "background.secondary", color: "white"  }}>
       <Container fixed>
         <Grid container spacing={2} sx={{ py: 5 }}>
           <Grid item md={3.6} xs={12} sm={6}>

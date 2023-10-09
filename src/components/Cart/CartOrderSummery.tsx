@@ -3,7 +3,7 @@ import { Card, Stack, Typography } from "@mui/material";
 
 const CartOrderSummery = () => {
   return (
-    <Card sx={{ bgcolor: "white", p: 2, boxShadow: 2, position: "sticky", top: 0, left: 0 }}>
+    <Card sx={{ bgcolor: "white", p: 2, boxShadow: 2, position: "sticky", top: "80px", left: 0 }}>
       <Stack spacing={1}>
         <Typography variant="subtitle1">Order Summary</Typography>
         <Stack direction="row" justifyContent="space-between">
