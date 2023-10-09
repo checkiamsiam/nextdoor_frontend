@@ -16,6 +16,7 @@ import { BiSearchAlt } from "react-icons/bi";
 import { Search, SearchIconWrapper, StyledInputBase } from "./StyleComponents";
 import { useRouter } from "next/router";
 import { IProduct } from "@/interface/product.interface";
+import SecondaryButton from "@/components/common/Button/SecondaryButton";
 
 const SearchBar = () => {
   const router = useRouter();
@@ -109,12 +110,9 @@ const SearchBar = () => {
                     </Box>
                   ))}
 
-                  <Button
-                    variant="text"
-                    color="primary"
+                  <SecondaryButton
                     sx={{
                       mt: "auto",
-                      bgcolor: "background.paper",
                     }}
                     onClick={() => {
                       router.push(`/product/search?search=${search}`);
@@ -122,7 +120,7 @@ const SearchBar = () => {
                     }}
                   >
                     See All Result
-                  </Button>
+                  </SecondaryButton>
                 </Stack>
               )}
 
