@@ -1,10 +1,11 @@
 import latestProducts from "@/static/latestProducts";
-import { Box, Card, Checkbox, Hidden, Stack, Typography } from "@mui/material";
+import { Box, Card, Checkbox, Hidden, Stack, Table, TableBody, TableCell, TableRow, Typography } from "@mui/material";
 import Image from "next/image";
-import { AiOutlinePlus, AiTwotoneDelete } from "react-icons/ai";
-import { RiSubtractFill } from "react-icons/ri";
+import { useState } from "react";
+import { AiOutlineMinus, AiOutlinePlus, AiTwotoneDelete } from "react-icons/ai";
 
 const CartItemCard = () => {
+  const [count, setCount] = useState(1);
   return (
     <Card sx={{ bgcolor: "white", px: 1, boxShadow: 2, mt: 2 }}>
       <Stack>
@@ -29,46 +30,56 @@ const CartItemCard = () => {
                 ":hover": {
                   color: "secondary.main",
                 },
+                "& svg": {
+                  color: "error.main"
+                }
               }}
             >
-              <AiTwotoneDelete style={{ fontSize: "20px" }} />
+              <AiTwotoneDelete style={{ fontSize: "20px"  }} />
             </Box>
             <Stack direction="row">
-              <Box
-                sx={{
-                  padding: "5px",
-                  display: "flex",
-                  alignItems: "center",
-                  border: "1px solid grey",
-                  backgroundColor: "background.paper",
-                  cursor: "pointer",
-                  transition: "all 0.3s ease-in-out",
-                  ":hover": {
-                    color: "secondary.main",
-                    borderColor: "secondary.main",
-                  },
-                }}
-              >
-                <RiSubtractFill />
-              </Box>
-              <Typography sx={{ px: "10px", display: "flex", alignItems: "center" }}>5</Typography>
-              <Box
-                sx={{
-                  padding: "5px",
-                  display: "flex",
-                  alignItems: "center",
-                  border: "1px solid grey",
-                  backgroundColor: "background.paper",
-                  cursor: "pointer",
-                  transition: "all 0.3s ease-in-out",
-                  ":hover": {
-                    color: "secondary.main",
-                    borderColor: "secondary.main",
-                  },
-                }}
-              >
-                <AiOutlinePlus />
-              </Box>
+              <Table size="small">
+                <TableBody>
+                  <TableRow
+                    sx={{
+                      "& .MuiTableCell-root": {
+                        borderBottom: "none",
+                        border: "1px solid",
+                        borderColor: "grey.300",
+                        textAlign: "center",
+                      },
+                    }}
+                  >
+                    <TableCell
+                      sx={{
+                        cursor: "pointer",
+                        transition: "all 0.3s ease",
+                        ":hover": {
+                          bgcolor: "primary.lighter",
+                        },
+                      }}
+                      onClick={() => (count > 1 ? setCount(count - 1) : null)}
+                    >
+                      <AiOutlineMinus />
+                    </TableCell>
+                    <TableCell>
+                      <Typography variant="body1">{count}</Typography>
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        cursor: "pointer",
+                        transition: "all 0.3s ease",
+                        ":hover": {
+                          bgcolor: "primary.lighter",
+                        },
+                      }}
+                      onClick={() => (count < 10 ? setCount(count + 1) : null)}
+                    >
+                      <AiOutlinePlus />
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
             </Stack>
           </Stack>
         </Stack>

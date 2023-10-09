@@ -26,6 +26,9 @@ const CartItems = () => {
               ":hover": {
                 color: "secondary.main",
               },
+              "& svg": {
+                color: "error.main",
+              },
             }}
           >
             <AiTwotoneDelete style={{ fontSize: "16px" }} />
