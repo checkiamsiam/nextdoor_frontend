@@ -28,7 +28,7 @@ const ProductCard = ({ product }: IProps) => {
         height: "100%",
         transition: "all 0.3s ease-in-out",
         "&:hover": {
-          boxShadow: 3,
+          boxShadow: 5,
         },
       }}
     >

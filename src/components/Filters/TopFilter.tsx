@@ -39,7 +39,8 @@ const TopFilter = ({ title = "Title" }: IProps) => {
           py: 1,
           px: 2,
           maxWidth: "100%",
-          boxShadow: "1px 1px 5px lightgray",
+          // boxShadow: "1px 1px 5px lightgray",
+          boxShadow: 1,
           borderRadius: 1,
         }}
       >

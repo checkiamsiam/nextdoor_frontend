@@ -1,4 +1,3 @@
-import SimpleBreadCrumbs from "@/components/common/BreadCrumbs/SimpleBreadCrumbs";
 import { categories } from "@/static/data";
 import { Card, Container, Grid, Typography } from "@mui/material";
 import Image from "next/image";
@@ -7,7 +6,7 @@ import Link from "next/link";
 const Categories = () => {
   return (
     <>
-      <Container fixed sx={{ py: 10 }}>
+      <Container fixed sx={{ py: 4 }}>
         <Grid container spacing={2}>
           {categories?.map((category) => (
             <Grid item xs={12} sm={6} md={4} key={category.id}>
