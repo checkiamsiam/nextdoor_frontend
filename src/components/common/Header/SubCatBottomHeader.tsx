@@ -5,7 +5,22 @@ const SubCatBottomHeader = () => {
   return (
     <Box bgcolor="white">
       <Container fixed sx={{ paddingTop: "70px" }}>
-        <Stack direction="row" gap="5px" justifyContent="space-between" alignItems="center" sx={{ paddingY: "5px" }}>
+        <Stack
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
+          sx={{
+            paddingY: "5px",
+            //select last theree child
+            "& > *:nth-last-child(-n+3)": {
+              //select subC class inside last three child
+              "& .subCategory": {
+                left: "auto",
+                right: 0,
+              },
+            },
+          }}
+        >
           {categories.map((category, i) => {
             return (
               <Box
@@ -30,7 +45,6 @@ const SubCatBottomHeader = () => {
                     position: "absolute",
                     width: "150px",
                     top: "102%",
-                    left: 0,
                     opacity: 0,
                     visibility: "hidden",
                     backgroundColor: "white",
@@ -38,7 +52,7 @@ const SubCatBottomHeader = () => {
                     borderTop: "2px solid",
                     borderColor: "secondary.main",
                     boxShadow: 5,
-                    transition: "all 0.5s linear",
+                    transition: "all 0.3s linear",
                     borderRadius: "5px",
                     padding: "5px",
                   }}
@@ -55,7 +69,7 @@ const SubCatBottomHeader = () => {
                             fontSize: 14,
                             paddingY: "5px",
                             paddingX: "10px",
-                            transition: "all 0.3s ease-in-out",
+                            transition: "all 0.1s ease-in-out",
                             ":hover": {
                               backgroundColor: "secondary.main",
                               borderRadius: "5px",

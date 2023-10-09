@@ -6,7 +6,7 @@ import FooterLink from "./FooterLink";
 
 const Footer = () => {
   return (
-    <Box sx={{ bgcolor: "background.secondary", color: "white" }}>
+    <Box sx={{ bgcolor: "background.secondary", color: "white"  }}>
       <Container fixed>
         <Grid container spacing={2} sx={{ py: 5 }}>
           <Grid item md={3.6} xs={12} sm={6}>
@@ -118,9 +118,7 @@ const Footer = () => {
               <FooterLink href="/">Zam Electronics, 2nd Floor, RS Shoping Complex, Jatrabari</FooterLink>
               <FooterLink href="/">
                 Email:{" "}
-                <Link sx={{ textDecoration: "none" }} color="secondary.main">
                   info@nextdoorbd.shop
-                </Link>
               </FooterLink>
             </Stack>
           </Grid>

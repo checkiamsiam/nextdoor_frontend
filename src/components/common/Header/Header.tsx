@@ -30,7 +30,7 @@ const Header = () => {
           bgcolor: "background.secondary",
           color: "white",
           position: "fixed",
-          width: "100%",
+          width: "100vw",
           zIndex: 99,
         }}
       >

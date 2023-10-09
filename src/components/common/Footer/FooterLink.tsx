@@ -16,6 +16,7 @@ const FooterLink = ({ children, href }: IProps) => {
           color: "inherit",
           ":hover": {
             textDecoration: "underline",
+            color: "secondary.main",
           },
         }}
         href={href}

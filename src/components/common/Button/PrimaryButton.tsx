@@ -1,11 +1,11 @@
-import { Button, SxProps } from "@mui/material";
+import { Button, ButtonProps, SxProps } from "@mui/material";
 
 type IProps = {
   children: React.ReactNode | string;
   sx?: SxProps;
 };
 
-const PrimaryButton = ({ children, sx }: IProps) => {
+const PrimaryButton = ({ children, sx , ...rest }: IProps & ButtonProps) => {
   return (
     <>
       <Button
@@ -14,6 +14,7 @@ const PrimaryButton = ({ children, sx }: IProps) => {
         sx={{
           ...sx,
         }}
+        {...rest}
       >
         {children}
       </Button>

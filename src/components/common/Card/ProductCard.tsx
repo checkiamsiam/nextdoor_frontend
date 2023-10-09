@@ -9,6 +9,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import CustomLink from "../Button/CustomLink";
 
 type IProps = {
   product: IProduct;
@@ -16,7 +17,7 @@ type IProps = {
 
 const ProductCard = ({ product }: IProps) => {
   const router = useRouter();
-  const { title, regularPrice, id, images, salePrice, category, rating } =
+  const { title, regularPrice, id, images, salePrice, slug, category, rating } =
     product;
   return (
     <Box
@@ -73,7 +74,7 @@ const ProductCard = ({ product }: IProps) => {
               },
             },
           }}
-          onClick={() => router.push(`/product/${id}`)}
+          onClick={() => router.push(`/product/${slug}`)}
         >
           <Image src={images[0]} alt={title} layout="fill" />
         </Box>
@@ -98,10 +99,8 @@ const ProductCard = ({ product }: IProps) => {
           gap: 1,
         }}
       >
-        <MuiLink
-          component={Link}
-          href={`/product/${id}`}
-          underline="none"
+        <CustomLink
+          href={`/product/${slug}`}
           sx={{
             color: "text.primary",
             lineHeight: 1.2,
@@ -113,7 +112,7 @@ const ProductCard = ({ product }: IProps) => {
           <Typography variant="h6" sx={{ fontWeight: 500, fontSize: 14 }}>
             {title.length > 70 ? title.slice(0, 70) + "..." : title}
           </Typography>
-        </MuiLink>
+        </CustomLink>
 
         <Stack
           direction="row"
@@ -125,7 +124,7 @@ const ProductCard = ({ product }: IProps) => {
             variant="h6"
             sx={{ fontWeight: 600, fontSize: 16, color: "primary.dark" }}
           >
-            ${salePrice}
+            ৳{salePrice}
           </Typography>
 
           <Typography
@@ -136,7 +135,7 @@ const ProductCard = ({ product }: IProps) => {
               fontSize: 12,
             }}
           >
-            ${regularPrice}
+            ৳{regularPrice}
           </Typography>
         </Stack>
       </Box>
