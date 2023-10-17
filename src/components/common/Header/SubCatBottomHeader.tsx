@@ -3,7 +3,14 @@ import { categories } from "../../../static/data";
 
 const SubCatBottomHeader = () => {
   return (
-    <Box bgcolor="white">
+    <Box
+      sx={{
+        bgcolor: "white",
+        borderBottom: "2px solid",
+        borderColor: "divider",
+        boxShadow: 2,
+      }}
+    >
       <Container fixed sx={{ paddingTop: "70px" }}>
         <Stack
           direction="row"
@@ -36,7 +43,11 @@ const SubCatBottomHeader = () => {
                   },
                 }}
               >
-                <Typography variant="body1" color="text.secondary" sx={{ cursor: "pointer", fontSize: 14 }}>
+                <Typography
+                  variant="body1"
+                  color="text.secondary"
+                  sx={{ cursor: "pointer", fontSize: 14 }}
+                >
                   {category.name}
                 </Typography>
                 <Box
@@ -58,28 +69,30 @@ const SubCatBottomHeader = () => {
                   }}
                 >
                   <Stack spacing={1}>
-                    {["lama", "kama", "nama", "lama", "kama", "nama"].map((subCategory, i) => {
-                      return (
-                        <Typography
-                          key={i}
-                          variant="body2"
-                          color="text.secondary"
-                          sx={{
-                            cursor: "pointer",
-                            fontSize: 14,
-                            paddingY: "5px",
-                            paddingX: "10px",
-                            transition: "all 0.1s ease-in-out",
-                            ":hover": {
-                              backgroundColor: "secondary.main",
-                              borderRadius: "5px",
-                            },
-                          }}
-                        >
-                          Item One
-                        </Typography>
-                      );
-                    })}
+                    {["lama", "kama", "nama", "lama", "kama", "nama"].map(
+                      (subCategory, i) => {
+                        return (
+                          <Typography
+                            key={i}
+                            variant="body2"
+                            color="text.secondary"
+                            sx={{
+                              cursor: "pointer",
+                              fontSize: 14,
+                              paddingY: "5px",
+                              paddingX: "10px",
+                              transition: "all 0.1s ease-in-out",
+                              ":hover": {
+                                backgroundColor: "secondary.main",
+                                borderRadius: "5px",
+                              },
+                            }}
+                          >
+                            Item One
+                          </Typography>
+                        );
+                      }
+                    )}
                   </Stack>
                 </Box>
               </Box>

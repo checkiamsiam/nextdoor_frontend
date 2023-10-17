@@ -14,6 +14,8 @@ import {
 import Image from "next/image";
 import { useState } from "react";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+import PrimaryButton from "../common/Button/PrimaryButton";
+import SecondaryButton from "../common/Button/SecondaryButton";
 
 type IProps = {
   product: IProduct;
@@ -227,13 +229,13 @@ const ProductTopInfo = ({ product }: IProps) => {
             </Box>
 
             <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
-              <Button variant="contained" color="primary" sx={{ px: 3 }}>
+              <PrimaryButton variant="contained" color="primary" sx={{ px: 3 }}>
                 Buy Now
-              </Button>
+              </PrimaryButton>
 
-              <Button variant="outlined" color="primary" sx={{ px: 2 }}>
+              <SecondaryButton color="primary" sx={{ px: 2 }}>
                 Add to Cart
-              </Button>
+              </SecondaryButton>
             </Stack>
           </Box>
         </Grid>

@@ -21,7 +21,7 @@ type IProps = {
 const SingleCategory = ({ category }: IProps) => {
   return (
     <>
-      <Container fixed sx={{ py: { xs: 8, md: 4 } }}>
+      <Container fixed sx={{ py: 2 }}>
         <Grid container spacing={2}>
           {/* Left Side Filters */}
           <Grid item xs={0} md={3}>
