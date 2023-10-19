@@ -25,6 +25,7 @@ const Header = () => {
   useClickOutside(ref, handleClose);
   return (
     <header>
+      
       <Box
         sx={{
           bgcolor: "background.secondary",

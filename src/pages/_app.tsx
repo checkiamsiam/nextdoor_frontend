@@ -4,9 +4,10 @@ import { NextPage } from "next";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import MessengerCustomerChat from "react-messenger-customer-chat";
+import PageProgress from "@/components/common/PageProgress";
+import MainLayout from "@/layout/MainLayout";
 
 // Slick Carousel CSS
-import MainLayout from "@/layout/MainLayout";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 
@@ -28,6 +29,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <ThemeProvider>
+        <PageProgress />
         <MessengerCustomerChat pageId="131744433355473" appId="1006473783736489" />
         {getLayout(<Component {...pageProps} />)}
       </ThemeProvider>

@@ -35,7 +35,7 @@ const HeaderMain = () => {
         </RouterLink>
       </Grid>
       <Grid item md={1.8}>
-        <RouterLink href="/">
+        <RouterLink href="/cart">
           <Stack direction="row" justifyContent="center" alignItems="center" gap="8px">
             <BiCart
               style={{
