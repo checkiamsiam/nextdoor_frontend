@@ -23,8 +23,8 @@ const Banner = () => {
   return (
     <>
       <Container fixed sx={{ py: 4, pt: { xs: "90px", md: "20px" } }}>
-        <Grid container spacing={3}>
-          <Grid item xs={12} lg={9}>
+        <Grid container spacing={2}>
+          <Grid item xs={12} lg={8.5}>
             <Box sx={{ position: "relative" }}>
               <Slider {...settings}>
                 <Box sx={{ aspectRatio: "965/500", position: "relative" }}>
@@ -58,7 +58,7 @@ const Banner = () => {
               </Slider>
             </Box>
           </Grid>
-          <Grid item xs={12} lg={3}>
+          <Grid item xs={12} lg={3.5}>
             <Grid container spacing={3}>
               <Grid item xs={6} lg={12}>
                 <Box sx={{ position: "relative", aspectRatio: "400/240" }}>
