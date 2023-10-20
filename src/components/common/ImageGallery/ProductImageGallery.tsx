@@ -17,9 +17,23 @@ const ProductImageGallery = ({ open, setOpen, images }: IProps) => {
       plugins={[Thumbnails, Zoom]}
       zoom={{
         scrollToZoom: true,
+        maxZoomPixelRatio: 3,
       }}
       animation={{
         zoom: 500,
+      }}
+      styles={{
+        container: {
+          backgroundColor: "rgba(0, 0, 0, .8)",
+          backdropFilter: "blur(10px)",
+        },
+        thumbnailsContainer: {
+          backgroundColor: "rgba(0, 0, 0, .9)",
+          backdropFilter: "blur(10px)",
+        },
+        thumbnail: {
+          backgroundColor: "transparent",
+        },
       }}
     />
   );

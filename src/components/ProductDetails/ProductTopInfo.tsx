@@ -1,7 +1,6 @@
 import { IProduct } from "@/interface/product.interface";
 import {
   Box,
-  Fade,
   Grid,
   Stack,
   Table,
@@ -10,11 +9,11 @@ import {
   TableRow,
   Typography
 } from "@mui/material";
-import Image from "next/image";
 import { useState } from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import PrimaryButton from "../common/Button/PrimaryButton";
 import SecondaryButton from "../common/Button/SecondaryButton";
+import CustomImage from "../common/Image/CustomImage";
 import ProductImageGallery from "../common/ImageGallery/ProductImageGallery";
 
 type IProps = {
@@ -46,27 +45,24 @@ const ProductTopInfo = ({ product }: IProps) => {
       <Box sx={{ bgcolor: "white", borderRadius: 2, boxShadow: 4, p: 2 }}>
         <Grid container spacing={3}>
           <Grid item xs={12} md={5}>
-            <Fade in={imgIndex !== -1} timeout={500}>
-              <Box
-                sx={{
-                  aspectRatio: "300/300",
-                  position: "relative",
-                  cursor: "zoom-in",
-                  "& img": {
-                    borderRadius: 2,
-                  },
-                }}
-                onClick={() => setGalleryView(true)}
-              >
-                <Image
-                  src={images[imgIndex]}
-                  alt={title}
-                  layout="fill"
-                  blurDataURL={images[imgIndex]}
-                  placeholder="blur"
-                />
-              </Box>
-            </Fade>
+            {/* <Fade in={imgIndex !== -1} timeout={500}> */}
+
+            <CustomImage
+              src={images[imgIndex]}
+              alt={title}
+              ratio="300/300"
+              blurDataURL={images[imgIndex]}
+              sx={{
+                aspectRatio: "300/300",
+                position: "relative",
+                cursor: "zoom-in",
+                "& img": {
+                  borderRadius: 2,
+                },
+              }}
+              onClick={() => setGalleryView(true)}
+            />
+            {/* </Fade> */}
 
             <Stack
               direction="row"
@@ -76,29 +72,21 @@ const ProductTopInfo = ({ product }: IProps) => {
               sx={{ mt: 2 }}
             >
               {images.map((image, i) => (
-                <Box
+                <CustomImage
                   key={i}
+                  src={image}
+                  alt={title}
+                  ratio="60/60"
                   sx={{
                     height: 60,
                     width: 60,
-                    aspectRatio: "60/60",
-                    position: "relative",
                     border: "2px solid",
                     borderColor: imgIndex === i ? "primary.dark" : "grey.300",
                     borderRadius: 2,
-                    overflow: "hidden",
                     cursor: "pointer",
                   }}
                   onClick={() => setImgIndex(i)}
-                >
-                  <Image
-                    src={image}
-                    alt={title}
-                    layout="fill"
-                    blurDataURL={image}
-                    placeholder="blur"
-                  />
-                </Box>
+                />
               ))}
             </Stack>
           </Grid>
