@@ -7,7 +7,7 @@ import {
   TableBody,
   TableCell,
   TableRow,
-  Typography
+  Typography,
 } from "@mui/material";
 import { useState } from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
@@ -44,7 +44,7 @@ const ProductTopInfo = ({ product }: IProps) => {
     <>
       <Box sx={{ bgcolor: "white", borderRadius: 2, boxShadow: 4, p: 2 }}>
         <Grid container spacing={3}>
-          <Grid item xs={12} md={5}>
+          <Grid item xs={12} md={4}>
             {/* <Fade in={imgIndex !== -1} timeout={500}> */}
 
             <CustomImage
@@ -91,7 +91,7 @@ const ProductTopInfo = ({ product }: IProps) => {
             </Stack>
           </Grid>
 
-          <Grid item xs={12} md={7}>
+          <Grid item xs={12} md={8}>
             {/* Title and some quick information */}
             <Box>
               <Typography
