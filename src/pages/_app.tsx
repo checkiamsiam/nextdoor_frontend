@@ -1,4 +1,5 @@
 import PageProgress from "@/components/common/PageProgress";
+import config from "@/config";
 import MainLayout from "@/layout/MainLayout";
 import "@/styles/globals.css";
 import ThemeProvider from "@/utils/theme";
@@ -17,16 +18,12 @@ type AppPropsWithLayout = AppProps & {
 };
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
-  const getLayout =
-    Component.getLayout || ((page) => <MainLayout>{page}</MainLayout>);
+  const getLayout = Component.getLayout || ((page) => <MainLayout>{page}</MainLayout>);
   return (
     <>
       <ThemeProvider>
         <PageProgress />
-        <MessengerCustomerChat
-          pageId="131744433355473"
-          appId="1006473783736489"
-        />
+        <MessengerCustomerChat pageId={config.facebookPageId} appId={config.facebookAppId} />
         {getLayout(<Component {...pageProps} />)}
       </ThemeProvider>
     </>

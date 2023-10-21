@@ -31,7 +31,7 @@ const MobileBottomMenu = () => {
             </Typography>
           </Stack>
         </CustomLink>
-        <CustomLink href="/public">
+        <CustomLink href="/cart">
           <Stack direction="column" justifyContent="center" alignItems="center" gap="5px">
             <BiCart
               style={{
