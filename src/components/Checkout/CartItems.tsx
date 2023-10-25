@@ -44,25 +44,6 @@ const CartItems = () => {
       <CartItemCard />
       <CartItemCard />
       <CartItemCard />
-      <CartItemCard />
-      <CartItemCard />
-      <CartItemCard />
-      <CartItemCard />
-      <CartItemCard />
-      <CartItemCard />
-      <CartItemCard />
-      <CartItemCard />
-      <CartItemCard />
-      <CartItemCard />
-      <CartItemCard />
-      <CartItemCard />
-      <CartItemCard />
-      <CartItemCard />
-      <CartItemCard />
-      <CartItemCard />
-      <CartItemCard />
-      <CartItemCard />
-      <CartItemCard />
     </>
   );
 };

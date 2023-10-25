@@ -2,11 +2,8 @@ import PrimaryButton from "@/components/common/Button/PrimaryButton";
 import { Card, Stack, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 
-const CartOrderSummery = () => {
+const OrderSummery = () => {
   const router = useRouter();
-  const handleProceedToCheckout = () => {
-    router.push("/checkout");
-  };
   return (
     <Card sx={{ bgcolor: "white", p: 2, boxShadow: 2, position: "sticky", top: "80px", left: 0 }}>
       <Stack spacing={1}>
@@ -21,17 +18,29 @@ const CartOrderSummery = () => {
         </Stack>
         <hr />
         <Stack direction="row" justifyContent="space-between">
-          <Typography variant="body2">Total</Typography>
+          <Typography variant="body2">Sub Total</Typography>
           <Typography color="secondary.dark" fontSize="14px">
             1200 ৳
           </Typography>
         </Stack>
-        <PrimaryButton onClick={handleProceedToCheckout} fullWidth>
-          Proceed to Checkout (0)
-        </PrimaryButton>
+        <Stack direction="row" justifyContent="space-between">
+          <Typography variant="body2">Shipping Charge</Typography>
+          <Typography color="secondary.dark" fontSize="14px">
+            60 ৳
+          </Typography>
+        </Stack>
+        <hr />
+        <Stack direction="row" justifyContent="space-between">
+          <Typography variant="body2">Total</Typography>
+          <Typography color="secondary.dark" fontSize="14px">
+            60 ৳
+          </Typography>
+        </Stack>
+        
+      
       </Stack>
     </Card>
   );
 };
 
-export default CartOrderSummery;
+export default OrderSummery;
