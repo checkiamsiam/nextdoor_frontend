@@ -51,7 +51,7 @@ const FeaturedCategory = () => {
                       filter: "grayscale(0%)",
                     },
                     "& p": {
-                      color: "secondary.main",
+                      color: "secondary.lighter",
                     },
                   },
                 }}
@@ -83,7 +83,7 @@ const FeaturedCategory = () => {
               sx={{
                 borderRadius: 3,
                 boxShadow: 1,
-                bgcolor: "secondary.light",
+                bgcolor: "primary.light",
                 p: 2,
                 cursor: "pointer",
                 height: "100%",

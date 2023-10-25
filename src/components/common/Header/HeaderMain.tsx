@@ -7,7 +7,13 @@ import SearchBar from "./SearchBar";
 
 const HeaderMain = () => {
   return (
-    <Grid container sx={{ height: "70px" }} direction="row" justifyContent="space-between" alignItems="center">
+    <Grid
+      container
+      sx={{ height: "70px" }}
+      direction="row"
+      justifyContent="space-between"
+      alignItems="center"
+    >
       <Grid item md={1}>
         <RouterLink href="/">
           <Typography variant="h4">Logo</Typography>
@@ -18,16 +24,21 @@ const HeaderMain = () => {
       </Grid>
       <Grid item md={1.8}>
         <RouterLink href="/">
-          <Stack direction="row" justifyContent="center" alignItems="center" gap="8px">
+          <Stack
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+            gap="8px"
+          >
             <BiGift
               style={{
-                color: theme.palette.secondary.main,
+                color: theme.palette.secondary.lighter,
                 fontSize: "30px",
               }}
             />
             <Box>
               <Typography variant="subtitle1">Offers</Typography>
-              <Typography fontSize="12px" color="text.disabled">
+              <Typography fontSize="12px" sx={{ color: "grey.300" }}>
                 Latest Offer
               </Typography>
             </Box>
@@ -35,17 +46,22 @@ const HeaderMain = () => {
         </RouterLink>
       </Grid>
       <Grid item md={1.8}>
-        <RouterLink href="/">
-          <Stack direction="row" justifyContent="center" alignItems="center" gap="8px">
+        <RouterLink href="/checkout/cart">
+          <Stack
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+            gap="8px"
+          >
             <BiCart
               style={{
-                color: theme.palette.secondary.main,
+                color: theme.palette.secondary.lighter,
                 fontSize: "30px",
               }}
             />
             <Box>
               <Typography variant="subtitle1">Cart</Typography>
-              <Typography fontSize="12px" color="text.disabled">
+              <Typography fontSize="12px" sx={{ color: "grey.300" }}>
                 Add To Cart
               </Typography>
             </Box>
@@ -53,10 +69,15 @@ const HeaderMain = () => {
         </RouterLink>
       </Grid>
       <Grid item md={1.8}>
-        <Stack direction="row" justifyContent="center" alignItems="center" gap="5px">
+        <Stack
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          gap="5px"
+        >
           <BiUser
             style={{
-              color: theme.palette.secondary.main,
+              color: theme.palette.secondary.lighter,
               fontSize: "30px",
             }}
           />
@@ -66,7 +87,7 @@ const HeaderMain = () => {
               <CustomLink
                 href="/login"
                 sx={{
-                  color: "text.disabled",
+                  color: "grey.300",
                   transition: "all 0.3s ease-in-out",
                   ":hover": {
                     color: "white",
@@ -79,7 +100,7 @@ const HeaderMain = () => {
               <CustomLink
                 href="/register"
                 sx={{
-                  color: "text.disabled",
+                  color: "grey.300",
                   transition: "all 0.3s ease-in-out",
                   ":hover": {
                     color: "white",

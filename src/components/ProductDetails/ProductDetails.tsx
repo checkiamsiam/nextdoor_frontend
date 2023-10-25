@@ -1,11 +1,11 @@
 import { IProduct } from "@/interface/product.interface";
-import { Box, Button, Card, Container, Grid, Stack } from "@mui/material";
-import ProductTopInfo from "./ProductTopInfo";
+import { Box, Button, Container, Grid, Stack } from "@mui/material";
 import { useState } from "react";
-import ProductSpecifications from "./ProductSpecifications";
 import ProductDescription from "./ProductDescription";
 import ProductQuestions from "./ProductQuestions";
 import ProductReviews from "./ProductReviews";
+import ProductSpecifications from "./ProductSpecifications";
+import ProductTopInfo from "./ProductTopInfo";
 import RelatedProducts from "./RelatedProducts";
 
 type IProps = {
@@ -24,15 +24,18 @@ const navigations = [
   {
     id: "questions",
     title: "Questions",
+    count: 2,
   },
   {
     id: "reviews",
     title: "Reviews",
+    count: 2,
   },
 ];
 
 const ProductDetails = ({ product }: IProps) => {
   const [activeTab, setActiveTab] = useState(0);
+
   return (
     <>
       <Container fixed sx={{ py: { xs: 10, md: 5 } }}>
@@ -41,16 +44,23 @@ const ProductDetails = ({ product }: IProps) => {
           <Grid container spacing={2.5}>
             <Grid item xs={12} md={8.5}>
               <Box>
-                <Stack direction="row" spacing={2} sx={{ mb: 3 }}>
+                <Stack
+                  direction="row"
+                  flexWrap="wrap"
+                  sx={{ mb: 3, gap: { xs: 0.5, md: 2 } }}
+                >
                   {navigations?.map((nav, i) => (
                     <a href={`#${nav?.id}`} key={i}>
                       <Button
                         variant="contained"
                         color={activeTab === i ? "secondary" : "primary"}
                         onClick={() => setActiveTab(i)}
-                        sx={{ px: { xs: 2, md: 4 } }}
+                        sx={{
+                          px: { xs: 1, md: 4 },
+                          py: { xs: 0, md: 1 },
+                        }}
                       >
-                        {nav?.title}
+                        {nav?.title} {nav?.count && `(${nav?.count})`}
                       </Button>
                     </a>
                   ))}

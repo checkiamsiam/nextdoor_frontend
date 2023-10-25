@@ -28,7 +28,7 @@ const LatestProducts = () => {
         Hottest items flying off the shelves
       </Typography>
 
-      <Grid container spacing={1.25} sx={{ mt: 0 }}>
+      <Grid container spacing={1.5} sx={{ mt: 0 }}>
         {latestProducts.map((product: IProduct) => (
           <Grid item xs={6} sm={4} md={3} lg={2.4} key={product.id}>
             <ProductCard product={product} />
