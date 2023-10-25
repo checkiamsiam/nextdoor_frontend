@@ -23,7 +23,6 @@ declare module "@mui/material/styles/createPalette" {
   interface PaletteColor {
     lighter?: string;
     darker?: string;
-    dark_hover?: string;
     contrastText: string;
   }
 }
@@ -44,31 +43,30 @@ const GREY = {
 };
 
 const PRIMARY = {
-  lighter: "#e6f0ff",
-  light: "#b0cfff",
-  main: "#0065FF",
-  dark: "#004cbf",
-  dark_hover: "#003D99",
-  darker: "#002359",
+  lighter: "#a6d5f5",
+  light: "#6BC3FF",
+  main: "#1299E8",
+  dark: "#0E7FC6",
+  darker: "#0A669D",
   contrastText: "#fff",
 };
 
 const SECONDARY = {
-  lighter: "#ffebcc",
-  light: "#ffc266",
-  main: "#FFA500", // This is a standard orange color
-  dark: "#e69500",
-  dark_hover: "#cc8400",
-  darker: "#996300",
-  contrastText: "#fff",
+  lighter: "#FFAD77",
+  light: "#fa7e55",
+  main: "#FF5722",
+  dark: "#D54C1A",
+  darker: "#AD4215",
+  contrasText: "#fff",
 };
 
 // const SECONDARY = {
-//   lighter: "#c5cae9", // indigo[100]
-//   light: "#7986cb", // indigo[300]
-//   main: "#3f51b5", // indigo[500]
-//   dark: "#283593", // indigo[800]
-//   darker: "#1a237e", // indigo[900]
+//   lighter: "#ffebcc",
+//   light: "#ffc266",
+//   main: "#FF5722",
+//   dark: "#e69500",
+//   dark_hover: "#cc8400",
+//   darker: "#996300",
 //   contrastText: "#fff",
 // };
 

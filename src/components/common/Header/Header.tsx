@@ -1,5 +1,13 @@
 import useClickOutside from "@/hooks/useClickOutside";
-import { Backdrop, Box, Container, Drawer, Hidden, Stack, Typography } from "@mui/material";
+import {
+  Backdrop,
+  Box,
+  Container,
+  Drawer,
+  Hidden,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { Sling as Hamburger } from "hamburger-react";
 import { useRef, useState } from "react";
 import { BiSearchAlt } from "react-icons/bi";
@@ -25,10 +33,9 @@ const Header = () => {
   useClickOutside(ref, handleClose);
   return (
     <header>
-      
       <Box
         sx={{
-          bgcolor: "background.secondary",
+          bgcolor: "primary.main",
           color: "white",
           position: "fixed",
           width: "100vw",
@@ -40,8 +47,17 @@ const Header = () => {
             <HeaderMain />
           </Hidden>
           <Hidden mdUp>
-            <Stack sx={{ height: "70px" }} direction="row" justifyContent="space-between" alignItems="center">
-              <Hamburger size={25} toggled={openMobileMenu} onToggle={() => setOpenMobileMenu(!openMobileMenu)} />
+            <Stack
+              sx={{ height: "70px" }}
+              direction="row"
+              justifyContent="space-between"
+              alignItems="center"
+            >
+              <Hamburger
+                size={25}
+                toggled={openMobileMenu}
+                onToggle={() => setOpenMobileMenu(!openMobileMenu)}
+              />
               <Typography variant="h4">Logo</Typography>
               <BiSearchAlt
                 onClick={handleClickOpen}

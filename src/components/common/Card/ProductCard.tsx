@@ -1,10 +1,5 @@
 import { IProduct } from "@/interface/product.interface";
-import {
-  Box,
-  Divider,
-  Stack,
-  Typography
-} from "@mui/material";
+import { Box, Divider, Stack, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import CustomLink from "../Button/CustomLink";
 import CustomImage from "../Image/CustomImage";
@@ -43,7 +38,7 @@ const ProductCard = ({ product }: IProps) => {
             zIndex: 1,
             py: 0.1,
             px: 1,
-            bgcolor: "primary.dark",
+            bgcolor: "secondary.light",
             color: "white",
             borderTopRightRadius: 5,
             borderBottomRightRadius: 5,
@@ -54,28 +49,6 @@ const ProductCard = ({ product }: IProps) => {
           </Typography>
         </Box>
 
-        {/* <Box
-          sx={{
-            position: "relative",
-            aspectRatio: "200/180",
-            borderTopLeftRadius: 6,
-            borderTopRightRadius: 6,
-            overflow: "hidden",
-            objectFit: "cover",
-            cursor: "pointer",
-            "& img": {
-              transition: "all 0.2s linear",
-            },
-            "&:hover": {
-              "& img": {
-                transform: "scale(1.1)",
-              },
-            },
-          }}
-          onClick={() => router.push(`/product/${slug}`)}
-        >
-          <Image src={images[0]} alt={title} layout="fill" />
-        </Box> */}
         <CustomImage
           src={images[0]}
           alt={title}
