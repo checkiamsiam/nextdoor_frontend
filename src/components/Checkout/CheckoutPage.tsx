@@ -15,10 +15,6 @@ const CheckoutPage = () => {
     return <NotFoundPage />;
   }
 
-  const handleProceed = () => {
-    router.push("/checkout/information");
-  };
-
   return (
     <>
       <SEO title="Cart | NextDoor" />
@@ -28,9 +24,16 @@ const CheckoutPage = () => {
             {slug === "cart" && <CartItems />}
             {slug === "information" && <InformationForm />}
             <Card sx={{ bgcolor: "white", p: 1, mt: 2, position: "sticky", bottom: "10px", boxShadow: 10 }}>
-              <Stack spacing={1} direction="row" justifyContent="flex-end" sx={{ fontSize: "10px" }}>
-                <PrimaryButton onClick={handleProceed}>Proceed to Checkout (0)</PrimaryButton>
-              </Stack>
+              {slug === "cart" && (
+                <Stack spacing={1} direction="row" justifyContent="flex-end" sx={{ fontSize: "10px" }}>
+                  <PrimaryButton onClick={() => router.push("/checkout/information")}>Proceed to Checkout (0)</PrimaryButton>
+                </Stack>
+              )}
+              {slug === "information" && (
+                <Stack spacing={1} direction="row" justifyContent="flex-end" sx={{ fontSize: "10px" }}>
+                  <PrimaryButton onClick={() => router.push("/checkout/confirm")}>Continue</PrimaryButton>
+                </Stack>
+              )}
             </Card>
           </Grid>
           <Grid item xs={12} md={4} sx={{ position: "relative" }}>
