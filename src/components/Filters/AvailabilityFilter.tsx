@@ -8,9 +8,29 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
+import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
+import FilterCheckBox from "./FilterCheckBox";
 
 const AvailabilityFilter = ({ id }: FilterProps) => {
+  const [selectedAvailability, setSelectedAvailability] = useState<string[]>(
+    []
+  );
+
+  const handleAvailabilityChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    if (event.target.checked) {
+      setSelectedAvailability([...selectedAvailability, event.target.name]);
+    } else {
+      setSelectedAvailability(
+        selectedAvailability.filter(
+          (availability) => availability !== event.target.name
+        )
+      );
+    }
+  };
+
   return (
     <>
       <Accordion
@@ -44,10 +64,18 @@ const AvailabilityFilter = ({ id }: FilterProps) => {
         <AccordionDetails>
           <Grid container>
             <Grid item xs={12}>
-              <FormControlLabel control={<Checkbox />} label="In Stock" />
+              <FilterCheckBox
+                label="In Stock"
+                checked={selectedAvailability.includes("In Stock")}
+                onChange={handleAvailabilityChange}
+              />
             </Grid>
             <Grid item xs={12}>
-              <FormControlLabel control={<Checkbox />} label="Out Of Stock" />
+              <FilterCheckBox
+                label="Out of Stock"
+                checked={selectedAvailability.includes("Out of Stock")}
+                onChange={handleAvailabilityChange}
+              />
             </Grid>
           </Grid>
         </AccordionDetails>
