@@ -5,7 +5,7 @@ const MobileBottomMenu = () => {
   return (
     <Container fixed>
       <Stack sx={{ height: "70px" }} direction="row" justifyContent="space-between" alignItems="center">
-        <CustomLink href="/public">
+        <CustomLink href="/">
           <Stack direction="column" justifyContent="center" alignItems="center" gap="5px">
             <BiHomeCircle
               style={{
@@ -31,7 +31,7 @@ const MobileBottomMenu = () => {
             </Typography>
           </Stack>
         </CustomLink>
-        <CustomLink href="/cart">
+        <CustomLink href="/checkout/cart">
           <Stack direction="column" justifyContent="center" alignItems="center" gap="5px">
             <BiCart
               style={{

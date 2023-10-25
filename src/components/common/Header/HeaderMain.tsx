@@ -46,7 +46,7 @@ const HeaderMain = () => {
         </RouterLink>
       </Grid>
       <Grid item md={1.8}>
-        <RouterLink href="/cart">
+        <RouterLink href="/checkout/cart">
           <Stack
             direction="row"
             justifyContent="center"
