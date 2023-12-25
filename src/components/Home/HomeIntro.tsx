@@ -6,7 +6,7 @@ const introText = `Welcome to NextDoor, your go-to destination for all your elec
 Order with confidence, and enjoy our convenient home delivery and nationwide courier service. Explore our website for detailed product information. For inquiries and updates, contact us via WhatsApp, Messenger, or call at 0123456789.`;
 
 const HomeIntro = () => {
-  const [fullText, setFullText] = useState<boolean>(false);
+  const [fullText, setFullText] = useState<boolean>(true);
   const pallette = useTheme().palette;
   return (
     <>
@@ -18,8 +18,8 @@ const HomeIntro = () => {
           height: 300,
           display: "grid",
           placeItems: "center",
-          my: 10,
-          mb: fullText ? 20 : 10,
+          my: 8,
+          mb: fullText ? { xs: 35, sm: 25, md: 15 } : 8,
           transition: "all 0.2s ease",
         }}
       >
@@ -27,7 +27,7 @@ const HomeIntro = () => {
           fixed
           sx={{
             my: 13,
-            p: 4,
+            p: { xs: 2, md: 4 },
             bgcolor: "white",
             boxShadow: 2,
             borderRadius: 2,
@@ -42,7 +42,7 @@ const HomeIntro = () => {
             <Typography
               component="h4"
               sx={{
-                fontSize: 20,
+                fontSize: { xs: 16, sm: 20 },
                 fontWeight: 500,
               }}
             >

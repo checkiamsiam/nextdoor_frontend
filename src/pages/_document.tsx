@@ -6,7 +6,6 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <meta name="theme-color" content={theme.palette.primary.main} />
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
         <link
           rel="apple-touch-icon"
           sizes="180x180"

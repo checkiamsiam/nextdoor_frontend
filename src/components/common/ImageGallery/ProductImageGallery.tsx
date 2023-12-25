@@ -8,7 +8,6 @@ type IProps = {
 };
 
 const ProductImageGallery = ({ open, setOpen, images }: IProps) => {
-  console.log(images);
   return (
     <LightBox
       slides={images}

@@ -1,5 +1,5 @@
 import { IProduct } from "@/interface/product.interface";
-import { Box, Divider, Stack, Typography } from "@mui/material";
+import { Box, Divider, Rating, Stack, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import CustomLink from "../Button/CustomLink";
 import CustomImage from "../Image/CustomImage";
@@ -21,7 +21,7 @@ const ProductCard = ({ product }: IProps) => {
         height: "100%",
         transition: "all 0.3s ease-in-out",
         "&:hover": {
-          boxShadow: 5,
+          boxShadow: "0px 10px 20px #a6d5f575",
         },
       }}
     >
@@ -106,30 +106,59 @@ const ProductCard = ({ product }: IProps) => {
           </Typography>
         </CustomLink>
 
-        <Stack
-          direction="row"
-          alignItems="center"
-          justifyContent="center"
-          spacing={1}
-        >
-          <Typography
-            variant="h6"
-            sx={{ fontWeight: 600, fontSize: 16, color: "primary.dark" }}
+        <Box>
+          {/* Prices */}
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="flex-start"
+            spacing={1}
           >
-            ৳{salePrice}
-          </Typography>
+            <Typography
+              variant="h6"
+              sx={{ fontWeight: 600, fontSize: 16, color: "primary.dark" }}
+            >
+              ৳{salePrice}
+            </Typography>
 
-          <Typography
-            variant="body2"
-            sx={{
-              textDecoration: "line-through",
-              color: "#999",
-              fontSize: 12,
-            }}
+            <Typography
+              variant="body2"
+              sx={{
+                textDecoration: "line-through",
+                color: "#999",
+                fontSize: 12,
+              }}
+            >
+              ৳{regularPrice}
+            </Typography>
+          </Stack>
+
+          {/* Rating */}
+          <Stack
+            direction="row"
+            alignItems="flex-end"
+            justifyContent="flex-start"
+            spacing={0.5}
           >
-            ৳{regularPrice}
-          </Typography>
-        </Stack>
+            <Rating
+              size="small"
+              value={rating}
+              precision={0.5}
+              readOnly
+              sx={{ "& svg": { width: 14, height: 14 } }}
+            />
+            <Typography
+              variant="body2"
+              sx={{
+                color: "grey.600",
+                fontSize: 12,
+                lineHeight: 1.2,
+              }}
+            >
+              ({50})
+            </Typography>
+          </Stack>
+        </Box>
       </Box>
     </Box>
   );
