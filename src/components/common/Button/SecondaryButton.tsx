@@ -13,7 +13,7 @@ const SecondaryButton = ({ children, sx, ...rest }: IProps & ButtonProps) => {
         color="primary"
         sx={{
           outline: "1px solid",
-          bgcolor: "primary.lighter",
+          bgcolor: "#a6d5f575",
           "&:hover": {
             bgcolor: "primary.main",
             color: "white",

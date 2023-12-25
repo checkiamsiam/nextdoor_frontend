@@ -5,6 +5,7 @@ import "@/styles/globals.css";
 import ThemeProvider from "@/utils/theme";
 import { NextPage } from "next";
 import type { AppProps } from "next/app";
+import Head from "next/head";
 import MessengerCustomerChat from "react-messenger-customer-chat";
 
 // App Props Type with Layout
@@ -18,12 +19,20 @@ type AppPropsWithLayout = AppProps & {
 };
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
-  const getLayout = Component.getLayout || ((page) => <MainLayout>{page}</MainLayout>);
+  const getLayout =
+    Component.getLayout || ((page) => <MainLayout>{page}</MainLayout>);
   return (
     <>
+      <Head>
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
+      </Head>
+
       <ThemeProvider>
         <PageProgress />
-        <MessengerCustomerChat pageId={config.facebookPageId} appId={config.facebookAppId} />
+        <MessengerCustomerChat
+          pageId={config.facebookPageId}
+          appId={config.facebookAppId}
+        />
         {getLayout(<Component {...pageProps} />)}
       </ThemeProvider>
     </>
