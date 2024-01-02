@@ -5,7 +5,7 @@ import HomeInformation from "@/components/Home/HomeInformation";
 import HomeIntro from "@/components/Home/HomeIntro";
 import LatestProducts from "@/components/Home/LatestProducts";
 import SEO from "@/components/common/SEO";
-import { getProducts } from "@/redux/features/productApi";
+import { getProducts } from "@/redux/features/product/productApi";
 import { IProduct } from "@/types/ApiResponse";
 
 type IProps = {
