@@ -1,14 +1,14 @@
-export interface Admin {
+export interface IAdmin {
   id: string;
   name: string;
   phone: string;
-  user?: User;
+  user?: IUser;
   createdAt?: Date;
   updatedAt?: Date;
   _count?: { orders?: number; notifications?: number };
 }
 
-export interface Customer {
+export interface ICustomer {
   id: string;
   name: string;
   address: string;
@@ -16,72 +16,72 @@ export interface Customer {
   country: string;
   phone: string;
   status: CustomerStatus;
-  user?: User;
+  user?: IUser;
   createdAt?: Date;
   updatedAt?: Date;
-  orders?: Order[];
-  notifications?: CustomerNotification[];
+  orders?: IOrder[];
+  notifications?: ICustomerNotification[];
   _count?: { orders: number; notifications: number };
 }
 
-export interface User {
+export interface IUser {
   id: string;
   username: string;
   email: string;
   password: string;
   role: UserRole;
   customerId?: string;
-  customer?: Customer;
+  customer?: ICustomer;
   adminId?: string;
-  admin?: Admin;
+  admin?: IAdmin;
   createdAt?: Date;
   updatedAt?: Date;
   _count?: { orders?: number; notifications?: number };
 }
 
-export interface Category {
+export interface ICategory {
   id: string;
   title: string;
   icon?: string;
   createdAt?: Date;
   updatedAt?: Date;
-  subCategories?: SubCategory[];
-  products?: Product[];
-  brands?: CategoryBrand[];
+  subCategories?: ISubCategory[];
+  products?: IProduct[];
+  brands?: ICategoryBrand[];
   _count?: { subCategories: number; products: number; brands: number };
 }
 
-export interface SubCategory {
+export interface ISubCategory {
   id: string;
   title: string;
   icon?: string;
   categoryId: string;
-  category: Category;
+  category: ICategory;
   createdAt?: Date;
   updatedAt?: Date;
-  products?: Product[];
+  products?: IProduct[];
   _count?: { products: number };
 }
 
-export interface Brand {
+export interface IBrand {
   id: string;
   title: string;
   logo?: string;
   createdAt?: Date;
   updatedAt?: Date;
-  products?: Product[];
-  categories?: CategoryBrand[];
+  products?: IProduct[];
+  categories?: ICategoryBrand[];
   _count?: { products: number; categories: number };
 }
 
-export interface CategoryBrand {
+export interface ICategoryBrand {
   categoryId: string;
-  category: Category;
+  category: ICategory;
   brandId: string;
-  brand: Brand;
+  brand: IBrand;
 }
 
-export interface Product {
+export interface IProduct {
   id: string;
   title: string;
   thumbnail: string;
@@ -93,19 +93,19 @@ export interface Product {
   keyFeatures?: string[];
   specifications?: string[];
   categoryId: string;
-  category: Category;
+  category: ICategory;
   subCategoryId: string;
-  subCategory: SubCategory;
+  subCategory: ISubCategory;
   brandId: string;
-  brand: Brand;
+  brand: IBrand;
   createdAt?: Date;
   updatedAt?: Date;
-  orders?: OrderItem[];
-  campaigns?: CampaignItems[];
-  campaignFreeItems?: CampaignFreeItems[];
+  orders?: IOrderItem[];
+  campaigns?: ICampaignItems[];
+  campaignFreeItems?: ICampaignFreeItems[];
 }
 
-export interface Campaign {
+export interface ICampaign {
   id: string;
   name: string;
   description?: string;
@@ -116,35 +116,35 @@ export interface Campaign {
   type: CampaignType;
   discountPrice?: number;
   discountPercentage?: number;
-  products?: CampaignItems[];
-  freeItems?: CampaignFreeItems[];
+  products?: ICampaignItems[];
+  freeItems?: ICampaignFreeItems[];
   createdAt?: Date;
   updatedAt?: Date;
 }
 
-export interface CampaignItems {
+export interface ICampaignItems {
   campaignId: string;
-  campaign: Campaign;
+  campaign: ICampaign;
   productId: string;
-  product: Product;
+  product: IProduct;
   createdAt?: Date;
   updatedAt?: Date;
 }
 
-export interface CampaignFreeItems {
+export interface ICampaignFreeItems {
   campaignId: string;
-  campaign: Campaign;
+  campaign: ICampaign;
   productId: string;
-  product: Product;
+  product: IProduct;
   quantity: number;
   createdAt?: Date;
   updatedAt?: Date;
 }
 
-export interface Order {
+export interface IOrder {
   id: string;
   customerId: string;
-  customer: Customer;
+  customer: ICustomer;
   recipietName: string;
   recipietPhone: string;
   recipietEmail: string;
@@ -153,24 +153,24 @@ export interface Order {
   recipietDivision: string;
   totalPrice: number;
   paymentStatus: PaymentStatus;
-  shipingStatus: ShipingStatus;
+  shipingStatus: ShippingStatus;
   invoice?: string;
   createdAt?: Date;
   updatedAt?: Date;
-  products?: OrderItem[];
+  products?: IOrderItem[];
 }
 
-export interface OrderItem {
+export interface IOrderItem {
   productId: string;
-  product: Product;
+  product: IProduct;
   orderId: string;
-  order: Order;
+  order: IOrder;
   quantity: number;
   createdAt?: Date;
   updatedAt?: Date;
 }
 
-export interface AdminNotification {
+export interface IAdminNotification {
   id: string;
   title: string;
   message: string;
@@ -181,10 +181,10 @@ export interface AdminNotification {
   updatedAt?: Date;
 }
 
-export interface CustomerNotification {
+export interface ICustomerNotification {
   id: string;
   customerId: string;
-  customer: Customer;
+  customer: ICustomer;
   type?: CustomerNotificationType;
   refId?: string;
   title: string;
@@ -195,7 +195,7 @@ export interface CustomerNotification {
   updatedAt?: Date;
 }
 
-enum ShipingStatus {
+enum ShippingStatus {
   pending = "pending",
   processing = "processing",
   shipped = "shipped",
@@ -211,11 +211,6 @@ enum PaymentStatus {
 }
 
 enum ProductStatus {
-  active = "active",
-  disabled = "disabled",
-}
-
-enum CampaignStatus {
   active = "active",
   disabled = "disabled",
 }

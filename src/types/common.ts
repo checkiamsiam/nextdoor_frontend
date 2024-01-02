@@ -1,4 +1,4 @@
-import { Product } from "./ApiResponse";
+import { IProduct } from "./ApiResponse";
 
 export interface IMeta {
   limit: number;
@@ -27,11 +27,15 @@ export type IGenericErrorResponse = {
 };
 
 export type IGenericErrorMessage = {
-  path ?: string | number;
+  path?: string | number;
   message: string;
 };
 
 export interface ILoginCredentials {
   email: string;
   password: string;
+}
+
+export interface FilterProps {
+  id: string;
 }

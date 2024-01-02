@@ -1,4 +1,4 @@
-import { FilterProps } from "@/interface/common.interface";
+import { FilterProps } from "@/types";
 import {
   Accordion,
   AccordionDetails,

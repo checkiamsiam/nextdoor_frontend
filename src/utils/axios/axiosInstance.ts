@@ -5,7 +5,7 @@ import { accessToken_key } from "@/constants/localStorage.const";
 import config from "@/config";
 
 const axiosInstance = axios.create({
-  baseURL: config.backendUrl,
+  baseURL: config.serverUrl,
 });
 axiosInstance.defaults.headers.post["Content-Type"] = "application/json";
 axiosInstance.defaults.headers["Accept"] = "application/json";

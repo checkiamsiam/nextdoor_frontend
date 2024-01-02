@@ -20,7 +20,8 @@ type AppPropsWithLayout = AppProps & {
 };
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
-  const getLayout = Component.getLayout || ((page) => <MainLayout>{page}</MainLayout>);
+  const getLayout =
+    Component.getLayout || ((page) => <MainLayout>{page}</MainLayout>);
   return (
     <>
       <Head>
@@ -29,7 +30,10 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
       <ReduxProvider>
         <ThemeProvider>
           <PageProgress />
-          <MessengerCustomerChat pageId={config.facebookPageId} appId={config.facebookAppId} />
+          <MessengerCustomerChat
+            pageId={config.facebookPageId}
+            appId={config.facebookAppId}
+          />
           {getLayout(<Component {...pageProps} />)}
         </ThemeProvider>
       </ReduxProvider>
