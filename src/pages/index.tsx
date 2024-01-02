@@ -5,8 +5,14 @@ import HomeInformation from "@/components/Home/HomeInformation";
 import HomeIntro from "@/components/Home/HomeIntro";
 import LatestProducts from "@/components/Home/LatestProducts";
 import SEO from "@/components/common/SEO";
+import { getProducts } from "@/redux/features/productApi";
+import { IProduct } from "@/types/ApiResponse";
 
-export default function Home() {
+type IProps = {
+  products: IProduct[];
+};
+
+export default function Home({ products }: IProps) {
   return (
     <>
       <SEO title="NextDoor - Your Destination for Electronic Innovations" />
@@ -14,8 +20,14 @@ export default function Home() {
       <FeaturedInfo />
       <FeaturedCategory />
       <HomeIntro />
-      <LatestProducts />
+      <LatestProducts products={products} />
       <HomeInformation />
     </>
   );
 }
+
+export const getServerSideProps = async () => {
+  const products = await getProducts({});
+
+  return { props: { products: products.products } };
+};

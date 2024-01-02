@@ -1,8 +1,9 @@
-import { IProduct } from "@/interface/product.interface";
+// import { IProduct } from "@/interface/product.interface";
 import { Box, Divider, Rating, Stack, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import CustomLink from "../Button/CustomLink";
 import CustomImage from "../Image/CustomImage";
+import { IProduct } from "@/types/ApiResponse";
 
 type IProps = {
   product: IProduct;
@@ -10,8 +11,7 @@ type IProps = {
 
 const ProductCard = ({ product }: IProps) => {
   const router = useRouter();
-  const { title, regularPrice, id, images, salePrice, slug, category, rating } =
-    product;
+  const { title, regularPrice, id, thumbnail, salePrice, category } = product;
   return (
     <Box
       sx={{
@@ -50,7 +50,7 @@ const ProductCard = ({ product }: IProps) => {
         </Box>
 
         <CustomImage
-          src={images[0]}
+          src={thumbnail}
           alt={title}
           ratio="200/180"
           sx={{
@@ -68,7 +68,7 @@ const ProductCard = ({ product }: IProps) => {
               },
             },
           }}
-          onClick={() => router.push(`/product/${slug}`)}
+          onClick={() => router.push(`/product/${id}`)}
         />
       </Box>
 
@@ -92,7 +92,7 @@ const ProductCard = ({ product }: IProps) => {
         }}
       >
         <CustomLink
-          href={`/product/${slug}`}
+          href={`/product/${id}`}
           sx={{
             color: "text.primary",
             lineHeight: 1.2,
@@ -142,7 +142,7 @@ const ProductCard = ({ product }: IProps) => {
           >
             <Rating
               size="small"
-              value={rating}
+              value={4.5}
               precision={0.5}
               readOnly
               sx={{ "& svg": { width: 14, height: 14 } }}
