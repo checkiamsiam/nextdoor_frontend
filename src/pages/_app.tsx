@@ -1,6 +1,7 @@
 import PageProgress from "@/components/common/PageProgress";
 import config from "@/config";
 import MainLayout from "@/layout/MainLayout";
+import ReduxProvider from "@/redux/Prodiver";
 import "@/styles/globals.css";
 import ThemeProvider from "@/utils/theme";
 import { NextPage } from "next";
@@ -19,22 +20,19 @@ type AppPropsWithLayout = AppProps & {
 };
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
-  const getLayout =
-    Component.getLayout || ((page) => <MainLayout>{page}</MainLayout>);
+  const getLayout = Component.getLayout || ((page) => <MainLayout>{page}</MainLayout>);
   return (
     <>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
-
-      <ThemeProvider>
-        <PageProgress />
-        <MessengerCustomerChat
-          pageId={config.facebookPageId}
-          appId={config.facebookAppId}
-        />
-        {getLayout(<Component {...pageProps} />)}
-      </ThemeProvider>
+      <ReduxProvider>
+        <ThemeProvider>
+          <PageProgress />
+          <MessengerCustomerChat pageId={config.facebookPageId} appId={config.facebookAppId} />
+          {getLayout(<Component {...pageProps} />)}
+        </ThemeProvider>
+      </ReduxProvider>
     </>
   );
 }
