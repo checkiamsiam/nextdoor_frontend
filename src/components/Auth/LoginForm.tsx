@@ -10,6 +10,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 import { LoginSchema } from "@/schemas/Login.yap";
+import { signIn } from "@/utils/auth/signIn";
 import FormProvider from "../HookForm/FormProvider";
 import RHFTextField from "../HookForm/RHFTextField";
 
@@ -40,22 +41,22 @@ const LoginForm = () => {
   const handleLogin: SubmitHandler<FormData> = async (data) => {
     const { email, password } = data;
     setLoader(true);
-
-    if ("res?.error") {
-      let errorData: any = "res?.error";
-      errorData = errorData?.replace("Error: ", "");
-      errorData = JSON.parse(errorData);
-
-      setError("root", {
-        ...errorData,
-        message: errorData?.msg,
+    try {
+      const res = await signIn({
+        email: email,
+        password: password,
       });
-      if (errorData?.type === "verify") {
-        router.push(`/verify-email?userId=${errorData?.userId}`);
+      if (res?.ok && !res?.error) {
+        setLoader(false);
+        router.push(router.query.from ? decodeURIComponent(`${router.query.from}`) : "/");
       }
-      return;
+    } catch (err: any) {
+      setLoader(false);
+      setError("root", {
+        ...err,
+        message: err?.message,
+      });
     }
-    router.push(router.query.from ? decodeURIComponent(`${router.query.from}`) : "/");
   };
 
   return (

@@ -5,6 +5,7 @@ import ReduxProvider from "@/redux/Prodiver";
 import "@/styles/globals.css";
 import ThemeProvider from "@/utils/theme";
 import { NextPage } from "next";
+import { SessionProvider } from "next-auth/react";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import MessengerCustomerChat from "react-messenger-customer-chat";
@@ -19,24 +20,22 @@ type AppPropsWithLayout = AppProps & {
   pageProps: any;
 };
 
-export default function App({ Component, pageProps }: AppPropsWithLayout) {
-  const getLayout =
-    Component.getLayout || ((page) => <MainLayout>{page}</MainLayout>);
+export default function App({ Component, pageProps: { session, ...pageProps } }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout || ((page) => <MainLayout>{page}</MainLayout>);
   return (
     <>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
-      <ReduxProvider>
-        <ThemeProvider>
-          <PageProgress />
-          <MessengerCustomerChat
-            pageId={config.facebookPageId}
-            appId={config.facebookAppId}
-          />
-          {getLayout(<Component {...pageProps} />)}
-        </ThemeProvider>
-      </ReduxProvider>
+      <SessionProvider session={session}>
+        <ReduxProvider>
+          <ThemeProvider>
+            <PageProgress />
+            <MessengerCustomerChat pageId={config.facebookPageId} appId={config.facebookAppId} />
+            {getLayout(<Component {...pageProps} />)}
+          </ThemeProvider>
+        </ReduxProvider>
+      </SessionProvider>
     </>
   );
 }

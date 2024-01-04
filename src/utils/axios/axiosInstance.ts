@@ -1,8 +1,9 @@
+import config from "@/config";
+import { accessToken_key } from "@/constants/localStorage.const";
 import { IGenericErrorResponse, ResponseSuccessType } from "@/types";
 import { getFromCookie } from "@/utils/browserStorage/cookiestorage";
 import axios from "axios";
-import { accessToken_key } from "@/constants/localStorage.const";
-import config from "@/config";
+import { signOut } from "../auth/signOut";
 
 const axiosInstance = axios.create({
   baseURL: config.serverUrl,
@@ -39,7 +40,7 @@ axiosInstance.interceptors.response.use(
   },
   async function (error) {
     if (error?.response?.status === 401 || error?.response?.status === 403) {
-      //signout
+      await signOut();
     }
     const responseObject: IGenericErrorResponse = {
       error: {
