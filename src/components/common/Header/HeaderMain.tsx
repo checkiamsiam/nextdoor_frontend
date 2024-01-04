@@ -69,6 +69,8 @@ const HeaderMain = () => {
             <Typography fontSize="12px" color="text.disabled">
               {session && status === "authenticated" ? (
                 <Typography
+                  display="inline-block"
+                  fontSize="12px"
                   onClick={() => signOut()}
                   sx={{
                     color: "grey.300",
@@ -76,6 +78,7 @@ const HeaderMain = () => {
                     ":hover": {
                       color: "white",
                     },
+                    cursor: "pointer",
                   }}
                 >
                   logout

@@ -18,7 +18,7 @@ axiosInstance.interceptors.request.use(
     // Do something before request is sent
     const accessToken = getFromCookie(accessToken_key);
     if (accessToken) {
-      config.headers.Authorization = accessToken;
+      config.headers.Authorization = JSON.parse(accessToken);
     }
     return config;
   },
