@@ -9,7 +9,6 @@ import SearchBar from "./SearchBar";
 
 const HeaderMain = () => {
   const { data: session, status } = useSession();
-  console.log(session);
   return (
     <Grid container sx={{ height: "70px" }} direction="row" justifyContent="space-between" alignItems="center">
       <Grid item md={1}>

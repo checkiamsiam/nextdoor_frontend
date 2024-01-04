@@ -34,9 +34,9 @@ const providers: Provider[] = [
               role: verifiedToken?.role,
             },
           };
+        } else {
+          throw new Error("Something went wrong");
         }
-
-        throw new Error(data?.error?.message || "Something went wrong");
       } catch (error: any) {
         throw new Error(error?.message || "Something went wrong");
       }
