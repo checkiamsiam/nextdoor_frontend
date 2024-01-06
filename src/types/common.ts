@@ -39,3 +39,14 @@ export interface ILoginCredentials {
 export interface FilterProps {
   id: string;
 }
+
+export interface ISessionData {
+  id: string;
+  accessToken: string;
+  user: {
+    userId: string;
+    username: string;
+    email: string;
+    role: string;
+  };
+}

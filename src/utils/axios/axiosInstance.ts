@@ -1,9 +1,8 @@
 import config from "@/config";
-import { accessToken_key } from "@/constants/localStorage.const";
 import { IGenericErrorResponse, ResponseSuccessType } from "@/types";
-import { getFromCookie } from "@/utils/browserStorage/cookiestorage";
 import axios from "axios";
 import { signOut } from "../auth/signOut";
+import { getSession } from "../session/session";
 
 const axiosInstance = axios.create({
   baseURL: config.serverUrl,
@@ -16,7 +15,8 @@ axiosInstance.defaults.timeout = 60000;
 axiosInstance.interceptors.request.use(
   function (config) {
     // Do something before request is sent
-    const accessToken = getFromCookie(accessToken_key);
+    const session = getSession();
+    const accessToken = session?.accessToken || "";
     if (accessToken) {
       config.headers.Authorization = JSON.parse(accessToken);
     }

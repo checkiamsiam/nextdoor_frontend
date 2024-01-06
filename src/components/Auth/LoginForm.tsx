@@ -1,4 +1,14 @@
-import { Alert, Button, Checkbox, CircularProgress, FormControlLabel, Grid, InputAdornment, Stack, Typography } from "@mui/material";
+import {
+  Alert,
+  Button,
+  Checkbox,
+  CircularProgress,
+  FormControlLabel,
+  Grid,
+  InputAdornment,
+  Stack,
+  Typography,
+} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -7,12 +17,14 @@ import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 
 // --------Form---------
 import { yupResolver } from "@hookform/resolvers/yup";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, set, useForm } from "react-hook-form";
 
 import { LoginSchema } from "@/schemas/Login.yap";
 import { signIn } from "@/utils/auth/signIn";
 import FormProvider from "../HookForm/FormProvider";
 import RHFTextField from "../HookForm/RHFTextField";
+import { loginWithCredential } from "@/redux/features/auth/authApi";
+import { setSession } from "@/utils/session/session";
 
 type FormData = {
   email: string;
@@ -42,13 +54,14 @@ const LoginForm = () => {
     const { email, password } = data;
     setLoader(true);
     try {
-      const res = await signIn({
-        email: email,
-        password: password,
-      });
-      if (res?.ok && !res?.error) {
+      const data = await signIn({ email: email, password: password });
+
+      if (data?.accessToken) {
+        setSession(data);
         setLoader(false);
-        router.push(router.query.from ? decodeURIComponent(`${router.query.from}`) : "/");
+        router.push(
+          router.query.from ? decodeURIComponent(`${router.query.from}`) : "/"
+        );
       }
     } catch (err: any) {
       setLoader(false);
@@ -65,7 +78,12 @@ const LoginForm = () => {
       <FormProvider methods={methods} onSubmit={handleSubmit(handleLogin)}>
         <Grid container spacing={3}>
           <Grid item xs={12}>
-            <RHFTextField label="Your Email address *" name="email" helperText={errors.email?.message} placeholder="Enter your email address" />
+            <RHFTextField
+              label="Your Email address *"
+              name="email"
+              helperText={errors.email?.message}
+              placeholder="Enter your email address"
+            />
           </Grid>
           <Grid item xs={12} sx={{ mt: 1.5 }}>
             <RHFTextField
@@ -77,7 +95,10 @@ const LoginForm = () => {
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
-                    <IconButton title="Show/Hide password" onClick={handleClickShowPassword}>
+                    <IconButton
+                      title="Show/Hide password"
+                      onClick={handleClickShowPassword}
+                    >
                       {showPassword ? <BsEyeSlashFill /> : <BsEyeFill />}
                     </IconButton>
                   </InputAdornment>
@@ -102,7 +123,12 @@ const LoginForm = () => {
             </Alert>
           )}
 
-          <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ width: "100%", mt: 2, pl: 3 }}>
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="space-between"
+            sx={{ width: "100%", mt: 2, pl: 3 }}
+          >
             <FormControlLabel
               value={remember}
               control={<Checkbox checked={remember} />}
