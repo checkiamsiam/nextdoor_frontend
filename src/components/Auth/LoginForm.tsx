@@ -56,13 +56,11 @@ const LoginForm = () => {
     try {
       const data = await signIn({ email: email, password: password });
 
-      if (data?.accessToken) {
-        setSession(data);
-        setLoader(false);
-        router.push(
-          router.query.from ? decodeURIComponent(`${router.query.from}`) : "/"
-        );
-      }
+      setSession(data);
+      setLoader(false);
+      router.push(
+        router.query.from ? decodeURIComponent(`${router.query.from}`) : "/"
+      );
     } catch (err: any) {
       setLoader(false);
       setError("root", {

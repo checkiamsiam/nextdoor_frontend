@@ -40,11 +40,17 @@ axiosInstance.interceptors.response.use(
   },
   async function (error) {
     if (error?.response?.status === 401 || error?.response?.status === 403) {
-      await signOut();
+      // skip signOut for /login and /register
+      const url = error?.response?.config?.url;
+      if (!url.includes("/login") && !url.includes("/register")) {
+        await signOut();
+      }
     }
+
     const responseObject: IGenericErrorResponse = {
       error: {
-        message: error?.response?.data?.message || "Something went wrong",
+        message:
+          error?.response?.data?.error?.message || "Something went wrong",
       },
     };
     return responseObject;

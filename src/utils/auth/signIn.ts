@@ -1,8 +1,8 @@
-import { loginWithCredential } from "@/redux/features/auth/authApi";
-import { jwtHelpers } from "../jwthelpers/jwthelpers";
 import config from "@/config";
-import { catchAsync } from "@/utils/axios/catchAsync";
+import { loginWithCredential } from "@/redux/features/auth/authApi";
 import { ILoginCredentials, ISessionData } from "@/types";
+import { jwtHelpers } from "../jwthelpers/jwthelpers";
+
 // import { login_credential } from "@/constants/credentialKey.const";
 // import { signIn as nextAuthSignIn } from "next-auth/react";
 
@@ -27,9 +27,9 @@ export const signIn = async ({ email, password }: ILoginCredentials) => {
     config.jwt.secret
   );
 
-  // if (!verifiedToken) {
-  //   throw new Error("Failed to login");
-  // }
+  if (!verifiedToken) {
+    throw new Error("Failed to login");
+  }
 
   const sessionData: ISessionData = {
     id: verifiedToken?.userId,
