@@ -86,9 +86,37 @@ const HeaderMain = () => {
           />
           <Box>
             <Typography variant="subtitle1">
-              {session?.user ? session?.user?.username : "Account"}
+              {session?.user ? session?.user?.email : "Account"}
             </Typography>
             <Typography fontSize="12px" color="text.disabled">
+              {session?.user && session?.accessToken ? (
+                <CustomLink
+                  href="/profile"
+                  sx={{
+                    color: "grey.300",
+                    transition: "all 0.3s ease-in-out",
+                    ":hover": {
+                      color: "white",
+                    },
+                  }}
+                >
+                  Profile
+                </CustomLink>
+              ) : (
+                <CustomLink
+                  href="/login"
+                  sx={{
+                    color: "grey.300",
+                    transition: "all 0.3s ease-in-out",
+                    ":hover": {
+                      color: "white",
+                    },
+                  }}
+                >
+                  Login
+                </CustomLink>
+              )}
+              {" or "}
               {session?.user && session?.accessToken ? (
                 <Typography
                   display="inline-block"
@@ -107,7 +135,7 @@ const HeaderMain = () => {
                 </Typography>
               ) : (
                 <CustomLink
-                  href="/login"
+                  href="/register"
                   sx={{
                     color: "grey.300",
                     transition: "all 0.3s ease-in-out",
@@ -116,22 +144,9 @@ const HeaderMain = () => {
                     },
                   }}
                 >
-                  Login
+                  Register
                 </CustomLink>
               )}
-              {" or "}
-              <CustomLink
-                href="/register"
-                sx={{
-                  color: "grey.300",
-                  transition: "all 0.3s ease-in-out",
-                  ":hover": {
-                    color: "white",
-                  },
-                }}
-              >
-                Register
-              </CustomLink>
             </Typography>
           </Box>
         </Stack>

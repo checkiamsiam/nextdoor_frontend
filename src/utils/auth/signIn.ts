@@ -2,6 +2,7 @@ import config from "@/config";
 import { loginWithCredential } from "@/redux/features/auth/authApi";
 import { ILoginCredentials, ISessionData } from "@/types";
 import { jwtHelpers } from "../jwthelpers/jwthelpers";
+import { jwtDecode } from "jwt-decode";
 
 // import { login_credential } from "@/constants/credentialKey.const";
 // import { signIn as nextAuthSignIn } from "next-auth/react";
@@ -22,10 +23,12 @@ export const signIn = async ({ email, password }: ILoginCredentials) => {
     throw new Error(res?.error?.message || "Failed to login");
   }
 
-  let verifiedToken: any = jwtHelpers.verifyToken(
-    res?.data?.accessToken,
-    config.jwt.secret
-  );
+  // let verifiedToken: any = jwtHelpers.verifyToken(
+  //   res?.data?.accessToken,
+  //   config.jwt.secret
+  // );
+
+  let verifiedToken: any = jwtDecode(res?.data?.accessToken);
 
   if (!verifiedToken) {
     throw new Error("Failed to login");
