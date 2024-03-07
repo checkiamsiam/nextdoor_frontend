@@ -1,9 +1,20 @@
-import { IProduct } from "@/interface/product.interface";
-import latestProducts from "@/static/latestProducts";
+
+import { IProduct } from "@/types/ApiResponse";
 import { Container, Grid, Typography } from "@mui/material";
 import ProductCard from "../common/Card/ProductCard";
 
-const LatestProducts = () => {
+type IProps = {
+  products: IProduct[];
+};
+
+const LatestProducts = ({ products }: IProps) => {
+  // const { data, isLoading } = useGetProductsQuery(
+  //   {},
+  //   {
+  //     skip: dataLoaded,
+  //   }
+  // )
+
   return (
     <Container fixed sx={{ py: 6 }}>
       {/* <SectionHeading
@@ -28,8 +39,8 @@ const LatestProducts = () => {
         Hottest items flying off the shelves
       </Typography>
 
-      <Grid container spacing={1.25} sx={{ mt: 0 }}>
-        {latestProducts.map((product: IProduct) => (
+      <Grid container spacing={1.5} sx={{ mt: 0 }}>
+        {products.map((product: IProduct) => (
           <Grid item xs={6} sm={4} md={3} lg={2.4} key={product.id}>
             <ProductCard product={product} />
           </Grid>

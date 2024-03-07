@@ -1,4 +1,12 @@
-*{
+/* Slick Carousel CSS */
+@import "~slick-carousel/slick/slick-theme.css";
+@import "~slick-carousel/slick/slick.css";
+
+/* LightBox */
+@import "~yet-another-react-lightbox/styles.css";
+@import "~yet-another-react-lightbox/plugins/thumbnails.css";
+
+* {
   margin: 0px;
   padding: 0px;
   font-family: "open sans", sans-serif;

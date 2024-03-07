@@ -1,17 +1,29 @@
-import { FilterProps } from "@/interface/common.interface";
+import { FilterProps } from "@/types";
 import brands from "@/static/brands";
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  Checkbox,
-  FormControlLabel,
   Grid,
   Typography,
 } from "@mui/material";
 import { IoIosArrowDown } from "react-icons/io";
+import FilterCheckBox from "./FilterCheckBox";
+import { useState } from "react";
 
 const BrandFilter = ({ id }: FilterProps) => {
+  const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
+
+  const handleBrandChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.checked) {
+      setSelectedBrands([...selectedBrands, event.target.name]);
+    } else {
+      setSelectedBrands(
+        selectedBrands.filter((brand) => brand !== event.target.name)
+      );
+    }
+  };
+
   return (
     <>
       <Accordion
@@ -46,7 +58,11 @@ const BrandFilter = ({ id }: FilterProps) => {
           <Grid container>
             {brands?.slice(0, 10)?.map((brand) => (
               <Grid item xs={12} key={brand?.id}>
-                <FormControlLabel control={<Checkbox />} label={brand?.name} />
+                <FilterCheckBox
+                  label={brand?.name}
+                  onChange={handleBrandChange}
+                  checked={selectedBrands.includes(brand?.name)}
+                />
               </Grid>
             ))}
           </Grid>

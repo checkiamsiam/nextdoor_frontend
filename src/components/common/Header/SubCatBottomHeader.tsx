@@ -55,7 +55,7 @@ const SubCatBottomHeader = () => {
                   sx={{
                     position: "absolute",
                     width: "150px",
-                    top: "102%",
+                    top: "125%",
                     opacity: 0,
                     visibility: "hidden",
                     backgroundColor: "white",
@@ -64,7 +64,7 @@ const SubCatBottomHeader = () => {
                     borderColor: "secondary.main",
                     boxShadow: 5,
                     transition: "all 0.3s linear",
-                    borderRadius: "5px",
+                    borderRadius: "0px 0px 5px 5px",
                     padding: "5px",
                   }}
                 >

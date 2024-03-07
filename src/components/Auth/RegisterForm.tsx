@@ -1,20 +1,13 @@
-import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
-import {
-  Alert,
-  Button,
-  CircularProgress,
-  Grid,
-  InputAdornment,
-  InputLabel,
-} from "@mui/material";
+import { Alert, Button, CircularProgress, Grid, InputAdornment } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 
 // --------Form---------
+import { SignUpSchema } from "@/schemas/Signup.yap";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SubmitHandler, useForm } from "react-hook-form";
-import * as Yup from "yup";
 import FormProvider from "../HookForm/FormProvider";
 import RHFTextField from "../HookForm/RHFTextField";
 
@@ -27,14 +20,6 @@ type FormData = {
 const RegisterForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [loader, setLoader] = useState(false);
-
-  const SignUpSchema = Yup.object().shape({
-    name: Yup.string().required("Name is required"),
-    email: Yup.string()
-      .required("Email is required")
-      .email("Email must be a valid email address"),
-    password: Yup.string().required("Password is required").min(8),
-  });
 
   const methods = useForm({
     resolver: yupResolver(SignUpSchema),
@@ -74,41 +59,14 @@ const RegisterForm = () => {
       <FormProvider methods={methods} onSubmit={handleSubmit(handleSignUp)}>
         <Grid container spacing={3}>
           <Grid item xs={12}>
-            {/* label */}
-            <InputLabel
-              htmlFor="name"
-              sx={{ mb: 1, color: "text.secondary", fontWeight: 500 }}
-            >
-              Your Full Name *
-            </InputLabel>
-            <RHFTextField
-              name="name"
-              helperText={errors.name?.message}
-              placeholder="Enter your Full name"
-            />
+            <RHFTextField label="Your Full Name *" name="name" helperText={errors.name?.message} placeholder="Enter your Full name" />
           </Grid>
           <Grid item xs={12}>
-            {/* label */}
-            <InputLabel
-              htmlFor="email"
-              sx={{ mb: 1, color: "text.secondary", fontWeight: 500 }}
-            >
-              Your Email address *
-            </InputLabel>
-            <RHFTextField
-              name="email"
-              helperText={errors.email?.message}
-              placeholder="Enter your email address"
-            />
+            <RHFTextField label="Your Email address *" name="email" helperText={errors.email?.message} placeholder="Enter your email address" />
           </Grid>
           <Grid item xs={12}>
-            <InputLabel
-              htmlFor="password"
-              sx={{ mb: 1, color: "text.secondary", fontWeight: 500 }}
-            >
-              Your Password *
-            </InputLabel>
             <RHFTextField
+              label="Your Password *"
               name="password"
               helperText={errors.password?.message}
               placeholder="Choose a strong password"
@@ -116,11 +74,7 @@ const RegisterForm = () => {
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={handleClickShowPassword}
-                      onMouseDown={handleMouseDownPassword}
-                    >
+                    <IconButton aria-label="toggle password visibility" onClick={handleClickShowPassword} onMouseDown={handleMouseDownPassword}>
                       {showPassword ? <BsEyeSlashFill /> : <BsEyeFill />}
                     </IconButton>
                   </InputAdornment>

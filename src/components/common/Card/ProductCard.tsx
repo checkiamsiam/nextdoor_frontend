@@ -1,15 +1,9 @@
-import { IProduct } from "@/interface/product.interface";
-import {
-  Box,
-  Stack,
-  Typography,
-  Link as MuiLink,
-  Divider,
-} from "@mui/material";
-import Image from "next/image";
-import Link from "next/link";
+// import { IProduct } from "@/interface/product.interface";
+import { Box, Divider, Rating, Stack, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import CustomLink from "../Button/CustomLink";
+import CustomImage from "../Image/CustomImage";
+import { IProduct } from "@/types/ApiResponse";
 
 type IProps = {
   product: IProduct;
@@ -17,8 +11,7 @@ type IProps = {
 
 const ProductCard = ({ product }: IProps) => {
   const router = useRouter();
-  const { title, regularPrice, id, images, salePrice, slug, category, rating } =
-    product;
+  const { title, regularPrice, id, thumbnail, salePrice, category } = product;
   return (
     <Box
       sx={{
@@ -28,7 +21,7 @@ const ProductCard = ({ product }: IProps) => {
         height: "100%",
         transition: "all 0.3s ease-in-out",
         "&:hover": {
-          boxShadow: 5,
+          boxShadow: "0px 10px 20px #a6d5f575",
         },
       }}
     >
@@ -45,7 +38,7 @@ const ProductCard = ({ product }: IProps) => {
             zIndex: 1,
             py: 0.1,
             px: 1,
-            bgcolor: "primary.dark",
+            bgcolor: "secondary.light",
             color: "white",
             borderTopRightRadius: 5,
             borderBottomRightRadius: 5,
@@ -56,10 +49,11 @@ const ProductCard = ({ product }: IProps) => {
           </Typography>
         </Box>
 
-        <Box
+        <CustomImage
+          src={thumbnail}
+          alt={title}
+          ratio="200/180"
           sx={{
-            position: "relative",
-            aspectRatio: "200/180",
             borderTopLeftRadius: 6,
             borderTopRightRadius: 6,
             overflow: "hidden",
@@ -74,10 +68,8 @@ const ProductCard = ({ product }: IProps) => {
               },
             },
           }}
-          onClick={() => router.push(`/product/${slug}`)}
-        >
-          <Image src={images[0]} alt={title} layout="fill" />
-        </Box>
+          onClick={() => router.push(`/product/${id}`)}
+        />
       </Box>
 
       <Divider
@@ -100,7 +92,7 @@ const ProductCard = ({ product }: IProps) => {
         }}
       >
         <CustomLink
-          href={`/product/${slug}`}
+          href={`/product/${id}`}
           sx={{
             color: "text.primary",
             lineHeight: 1.2,
@@ -114,30 +106,59 @@ const ProductCard = ({ product }: IProps) => {
           </Typography>
         </CustomLink>
 
-        <Stack
-          direction="row"
-          alignItems="center"
-          justifyContent="center"
-          spacing={1}
-        >
-          <Typography
-            variant="h6"
-            sx={{ fontWeight: 600, fontSize: 16, color: "primary.dark" }}
+        <Box>
+          {/* Prices */}
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="flex-start"
+            spacing={1}
           >
-            ৳{salePrice}
-          </Typography>
+            <Typography
+              variant="h6"
+              sx={{ fontWeight: 600, fontSize: 16, color: "primary.dark" }}
+            >
+              ৳{salePrice}
+            </Typography>
 
-          <Typography
-            variant="body2"
-            sx={{
-              textDecoration: "line-through",
-              color: "#999",
-              fontSize: 12,
-            }}
+            <Typography
+              variant="body2"
+              sx={{
+                textDecoration: "line-through",
+                color: "#999",
+                fontSize: 12,
+              }}
+            >
+              ৳{regularPrice}
+            </Typography>
+          </Stack>
+
+          {/* Rating */}
+          <Stack
+            direction="row"
+            alignItems="flex-end"
+            justifyContent="flex-start"
+            spacing={0.5}
           >
-            ৳{regularPrice}
-          </Typography>
-        </Stack>
+            <Rating
+              size="small"
+              value={4.5}
+              precision={0.5}
+              readOnly
+              sx={{ "& svg": { width: 14, height: 14 } }}
+            />
+            <Typography
+              variant="body2"
+              sx={{
+                color: "grey.600",
+                fontSize: 12,
+                lineHeight: 1.2,
+              }}
+            >
+              ({50})
+            </Typography>
+          </Stack>
+        </Box>
       </Box>
     </Box>
   );

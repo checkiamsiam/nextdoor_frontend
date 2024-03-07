@@ -21,7 +21,7 @@ const Footer = () => {
             <Stack spacing={2}>
               <Typography
                 variant="subtitle1"
-                color="secondary.main"
+                color="secondary.lighter"
                 textTransform="uppercase"
                 fontWeight={500}
               >
@@ -39,8 +39,8 @@ const Footer = () => {
                     border: "1px solid white",
                     transition: "all 0.5s ease-in-out",
                     ":hover": {
-                      borderColor: "secondary.main",
-                      color: "secondary.main",
+                      borderColor: "secondary.lighter",
+                      color: "secondary.lighter",
                     },
                   }}
                 >
@@ -63,8 +63,8 @@ const Footer = () => {
                     border: "1px solid white",
                     transition: "all 0.5s ease-in-out",
                     ":hover": {
-                      borderColor: "secondary.main",
-                      color: "secondary.main",
+                      borderColor: "secondary.lighter",
+                      color: "secondary.lighter",
                     },
                   }}
                 >
@@ -78,7 +78,7 @@ const Footer = () => {
               <Stack spacing={2}>
                 <Typography
                   variant="subtitle1"
-                  color="secondary.main"
+                  color="secondary.lighter"
                   textTransform="uppercase"
                   fontWeight={500}
                 >
@@ -117,7 +117,7 @@ const Footer = () => {
             <Stack spacing={2}>
               <Typography
                 variant="subtitle1"
-                color="secondary.main"
+                color="secondary.lighter"
                 textTransform="uppercase"
                 fontWeight={500}
               >
@@ -136,7 +136,7 @@ const Footer = () => {
             <Stack spacing={2}>
               <Typography
                 variant="subtitle1"
-                color="secondary.main"
+                color="secondary.lighter"
                 textTransform="uppercase"
                 fontWeight={500}
               >
@@ -155,7 +155,7 @@ const Footer = () => {
             <Stack spacing={2}>
               <Typography
                 variant="subtitle1"
-                color="secondary.main"
+                color="secondary.lighter"
                 textTransform="uppercase"
                 fontWeight={500}
               >
@@ -176,7 +176,7 @@ const Footer = () => {
         <Typography
           textAlign="center"
           variant="subtitle2"
-          sx={{ py: 1, color: "secondary.main" }}
+          sx={{ py: 1, color: "secondary.lighter" }}
         >
           © 2023 Thanks From NextDoorBD™ Ltd. | All rights reserved
         </Typography>

@@ -5,6 +5,7 @@ import {
   CustomNextArrow,
   CustomPrevArrow,
 } from "../common/Button/SliderButtons";
+import CustomImage from "../common/Image/CustomImage";
 
 const Banner = () => {
   const settings: any = {
@@ -23,60 +24,48 @@ const Banner = () => {
   return (
     <>
       <Container fixed sx={{ py: 4, pt: { xs: "90px", md: "20px" } }}>
-        <Grid container spacing={3}>
-          <Grid item xs={12} lg={9}>
+        <Grid container spacing={2}>
+          <Grid item xs={12} lg={8.5}>
             <Box sx={{ position: "relative" }}>
               <Slider {...settings}>
-                <Box sx={{ aspectRatio: "965/500", position: "relative" }}>
-                  <Image
-                    src="/images/banner_1.webp"
-                    alt="banner"
-                    layout="fill"
-                  />
-                </Box>
-                <Box sx={{ aspectRatio: "965/500", position: "relative" }}>
-                  <Image
-                    src="/images/banner_2.webp"
-                    alt="banner"
-                    layout="fill"
-                  />
-                </Box>
-                <Box sx={{ aspectRatio: "965/500", position: "relative" }}>
-                  <Image
-                    src="/images/banner_3.webp"
-                    alt="banner"
-                    layout="fill"
-                  />
-                </Box>
-                <Box sx={{ aspectRatio: "965/500", position: "relative" }}>
-                  <Image
-                    src="/images/banner_4.webp"
-                    alt="banner"
-                    layout="fill"
-                  />
-                </Box>
+                <CustomImage
+                  src="/images/banner_1.webp"
+                  alt="banner"
+                  ratio="965/500"
+                />
+                <CustomImage
+                  src="/images/banner_2.webp"
+                  alt="banner"
+                  ratio="965/500"
+                />
+                <CustomImage
+                  src="/images/banner_3.webp"
+                  alt="banner"
+                  ratio="965/500"
+                />
+                <CustomImage
+                  src="/images/banner_4.webp"
+                  alt="banner"
+                  ratio="965/500"
+                />
               </Slider>
             </Box>
           </Grid>
-          <Grid item xs={12} lg={3}>
+          <Grid item xs={12} lg={3.5}>
             <Grid container spacing={3}>
               <Grid item xs={6} lg={12}>
-                <Box sx={{ position: "relative", aspectRatio: "400/240" }}>
-                  <Image
-                    src="/images/banner_5.webp"
-                    alt="banner"
-                    layout="fill"
-                  />
-                </Box>
+                <CustomImage
+                  src="/images/banner_5.webp"
+                  alt="banner"
+                  ratio="400/240"
+                />
               </Grid>
               <Grid item xs={6} lg={12}>
-                <Box sx={{ position: "relative", aspectRatio: "400/240" }}>
-                  <Image
-                    src="/images/banner_6.webp"
-                    alt="banner"
-                    layout="fill"
-                  />
-                </Box>
+                <CustomImage
+                  src="/images/banner_6.webp"
+                  alt="banner"
+                  ratio="400/240"
+                />
               </Grid>
             </Grid>
           </Grid>
